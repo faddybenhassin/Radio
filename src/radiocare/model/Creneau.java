@@ -3,6 +3,8 @@ package radiocare.model;
 import java.time.DayOfWeek;
 import java.time.LocalTime;
 
+//write a description for classes that aren't in the project pdf
+
 public class Creneau {
     private DayOfWeek jour;     // MONDAY, TUESDAY...
     private LocalTime debut;    // 08:00
