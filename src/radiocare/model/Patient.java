@@ -4,12 +4,12 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class Patient {
-    public String CIN_Matricule;
-    public String Prénom;
-    public LocalDate DateNaissance;
-    public String Téléphone;
-    public String Email;
-    public String NumAssurance;
-    public double SoldeCompte;
-    public List<String> HistoriqueExamensIDs;
+    public String cinMatricule;
+    public String prenom;
+    public LocalDate dateNaissance;
+    public String telephone;
+    public String email;
+    public String numAssurance;
+    public double soldeCompte;
+    public List<String> historiqueExamensIDs;
 }
