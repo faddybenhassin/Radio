@@ -2,9 +2,11 @@ package radiocare.model;
 
 import java.time.DayOfWeek;
 import java.time.LocalTime;
+import java.util.Objects;
 
-//write a description for classes that aren't in the project pdf
-
+/**
+ * Weekly recurring time slot, e.g. "Monday from 08:00 to 16:00".
+ */
 public class Creneau {
     private DayOfWeek jour;     // MONDAY, TUESDAY...
     private LocalTime debut;    // 08:00
@@ -39,5 +41,16 @@ public class Creneau {
 
     public void setFin(LocalTime fin) {
         this.fin = fin;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Creneau creneau)) return false;
+        return jour == creneau.jour && Objects.equals(debut, creneau.debut) && Objects.equals(fin, creneau.fin);
+    }
+
+    @Override
+    public String toString() {
+        return jour + " " + debut + "-" + fin;
     }
 }
