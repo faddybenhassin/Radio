@@ -1,8 +1,7 @@
 package radiocare.model;
 
-import radiocare.model.enums.TypeEquipement;
-
 import java.util.Objects;
+import radiocare.model.enums.TypeEquipement;
 
 /**
  * Radiology room of the center, where exams are performed.
