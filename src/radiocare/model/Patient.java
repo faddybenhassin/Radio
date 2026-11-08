@@ -13,7 +13,7 @@ public class Patient {
     public double soldeCompte;
     public List<String> historiqueExamensIDs;
 
-    public Patient(String cinMatricule, LocalDate dateNaissance, String email, List<String> historiqueExamensIDs, String numAssurance, String prenom, double soldeCompte, String telephone) {
+    public Patient(String cinMatricule, String prenom, LocalDate dateNaissance, String telephone, String email , String numAssurance, double soldeCompte, List<String> historiqueExamensIDs) {
         this.cinMatricule = cinMatricule;
         this.dateNaissance = dateNaissance;
         this.email = email;
