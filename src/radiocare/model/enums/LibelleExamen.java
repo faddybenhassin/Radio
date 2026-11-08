@@ -1,8 +1,8 @@
 package radiocare.model.enums;
 
 public enum LibelleExamen {
-    IRM_Cérébrale, 
-    Scanner_Thoracique, 
-    Écho_Abdominale,
-    RX_Poumon
+    IRM_CEREBRALE,
+    SCANNER_THORACIQUE,
+    ECHO_ABDOMINALE,
+    RX_POUMON
 }
