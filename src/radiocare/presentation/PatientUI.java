@@ -13,7 +13,7 @@ public class PatientUI {
         Scanner sc = new Scanner(System.in);
         // later on , we add a code to make sure the new creation of the patient does't
         // give him an already existing id.
-        System.out.print("patient ID: ");
+        System.out.print("patient ID   : ");
         String id = sc.nextLine();
         
         System.out.print("patient name: ");
