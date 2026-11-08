@@ -11,5 +11,5 @@ public class SalleRadiologie{
     private String NormeBlindagePlomb; 
     private boolean StatutDispo;
 
-    
+
 }
