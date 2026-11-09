@@ -1,25 +1,50 @@
 package radiocare.model;
 
+import java.util.ArrayList;
 import java.util.List;
-import radiocare.model.enums.Specialite;
+import java.util.Objects;
 
+import radiocare.model.enums.Specialite;
+/**
+ * Radiologist doctor working at the center.
+ */
 public class MedecinRadiologue {
+
+    /** Unique identifier of the doctor. */
     private String idMedecin;
+
+    /** National ID number (CIN) of the doctor. */
     private String cin;
+
     private String nom;
     private String prenom;
-    private Specialite specialite;
-    private double TarifPourcentageActe;
-    private List<Creneau> DispoPlanning;
 
-    public MedecinRadiologue(List<Creneau> DispoPlanning, double TarifPourcentageActe, String cin, String idMedecin, String nom, String prenom, Specialite specialite) {
-        this.DispoPlanning = DispoPlanning;
-        this.TarifPourcentageActe = TarifPourcentageActe;
-        this.cin = cin;
+    /** Medical specialty: neuroradiology, osteo or thoracic. */
+    private Specialite specialite;
+
+    /**
+     * Share of each act's price paid to the doctor as fees, as a fraction
+     * between 0 and 1 (0.15 means 15%).
+     */
+    private double tarifPourcentageActe;
+
+    /**
+     * Weekly working hours: one {@link Creneau} per block the doctor works,
+     * repeated every week. An empty list means the doctor has no availability.
+     * Does not track booked appointments, those are checked through
+     * {@link RendezVous}.
+     */
+    private List<Creneau> dispoPlanning = new ArrayList<>();
+
+
+    public MedecinRadiologue(String idMedecin, String cin, String nom, String prenom, Specialite specialite, double tarifPourcentageActe, List<Creneau> dispoPlanning) {
         this.idMedecin = idMedecin;
+        this.cin = cin;
         this.nom = nom;
         this.prenom = prenom;
         this.specialite = specialite;
+        this.tarifPourcentageActe = tarifPourcentageActe;
+        this.dispoPlanning = dispoPlanning;
     }
 
     public String getIdMedecin() {
@@ -63,18 +88,38 @@ public class MedecinRadiologue {
     }
 
     public double getTarifPourcentageActe() {
-        return TarifPourcentageActe;
+        return tarifPourcentageActe;
     }
 
-    public void setTarifPourcentageActe(double TarifPourcentageActe) {
-        this.TarifPourcentageActe = TarifPourcentageActe;
+    public void setTarifPourcentageActe(double tarifPourcentageActe) {
+        this.tarifPourcentageActe = tarifPourcentageActe;
     }
 
     public List<Creneau> getDispoPlanning() {
-        return DispoPlanning;
+        return dispoPlanning;
     }
 
-    public void setDispoPlanning(List<Creneau> DispoPlanning) {
-        this.DispoPlanning = DispoPlanning;
+    public void setDispoPlanning(List<Creneau> dispoPlanning) {
+        this.dispoPlanning = dispoPlanning;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof MedecinRadiologue that)) return false;
+        return Objects.equals(idMedecin, that.idMedecin);
+    }
+
+    @Override
+    public String toString() {
+        return "MedecinRadiologue{" +
+                "idMedecin='" + idMedecin + '\'' +
+                ", cin='" + cin + '\'' +
+                ", nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", specialite=" + specialite +
+                ", tarifPourcentageActe=" + tarifPourcentageActe +
+                ", dispoPlanning=" + dispoPlanning +
+                '}';
     }
 }
+

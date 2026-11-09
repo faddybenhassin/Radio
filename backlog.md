@@ -34,7 +34,7 @@ Root package: `radiocare`. Layers: `view → controller → service → dao → 
 
 - [X] `Creneau` (jour, debut, fin)
 - [X] 1. `Patient` (+ contraindication field)
-- [ ] 2. `MedecinRadiologue` (`List<Creneau> dispoPlanning`)
+- [X] 2. `MedecinRadiologue` (`List<Creneau> dispoPlanning`)
 - [ ] 3. `ManipulateurRadio` (+ `heuresGarde`)
 - [X] 4. `EquipementImagerie`
 - [X] 5. `SalleRadiologie`
