@@ -1,7 +1,6 @@
 package radiocare.model;
 
-import radiocare.model.enums.CodeActe;
-import radiocare.model.enums.CodeResultat;
+import radiocare.model.enums.LibelleExamen;
 
 import java.util.Objects;
 
@@ -9,15 +8,15 @@ import java.util.Objects;
 public class ExamenMedical {
     private String idExamen;
     /* code of the examination ( IRM_CEREBRALE, SCANNER_THORACIQUE, ECHO_ABDOMINALE, RX_POUMON) */
-    private CodeActe codeActe;
+    private String codeActe;
     /* label for the examination */
-    private String libelle;
+    private LibelleExamen libelle;
     /* estimated duration in minutes for the exam */
     private int dureeEstimeeMinutes;
     /*hourly rate for the examination */
     private double tarifHT;
 
-    public ExamenMedical(String idExamen, CodeActe codeActe, String libelle, int dureeEstimeeMinutes, double tarifHT) {
+    public ExamenMedical(String idExamen, String codeActe, LibelleExamen libelle, int dureeEstimeeMinutes, double tarifHT) {
         this.idExamen = idExamen;
         this.codeActe = codeActe;
         this.libelle = libelle;
@@ -33,19 +32,19 @@ public class ExamenMedical {
         this.idExamen = idExamen;
     }
 
-    public CodeActe getCodeActe() {
+    public String getCodeActe() {
         return codeActe;
     }
 
-    public void setCodeActe(CodeActe codeActe) {
+    public void setCodeActe(String codeActe) {
         this.codeActe = codeActe;
     }
 
-    public String getLibelle() {
+    public LibelleExamen getLibelle() {
         return libelle;
     }
 
-    public void setLibelle(String libelle) {
+    public void setLibelle(LibelleExamen libelle) {
         this.libelle = libelle;
     }
 
