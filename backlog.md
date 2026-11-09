@@ -35,7 +35,7 @@ Root package: `radiocare`. Layers: `view → controller → service → dao → 
 - [X] `Creneau` (jour, debut, fin)
 - [X] 1. `Patient` (+ contraindication field)
 - [X] 2. `MedecinRadiologue` (`List<Creneau> dispoPlanning`)
-- [ ] 3. `ManipulateurRadio` (+ `heuresGarde`)
+- [X] 3. `ManipulateurRadio` (+ `heuresGarde`)
 - [X] 4. `EquipementImagerie`
 - [X] 5. `SalleRadiologie`
 - [ ] 6. `ExamenMedical`
@@ -43,18 +43,19 @@ Root package: `radiocare`. Layers: `view → controller → service → dao → 
 - [ ] 8. `CompteRenduMedical`
 - [ ] 9. `FactureMedicale`
 - [ ] 10. `Paiement`
-- [ ] `DepenseMaintenance` (equipment, date, amount, invoice ref)
+    (consulte each other before doing this one)
+- [ ] `DepenseMaintenance` (equipment, date, amount, invoice ref) 
 
 ## 4. Infrastructure
 
+- [ ] `dao`: `GenericDAO<T,ID>` interface
+- [ ] `dao`: `JsonDAO<T,ID>` (load all at startup into `Map`, flush on every write, return shared instances)
+- [ ] Test `JsonDAO` with `Patient` only (save, reload after restart)
 - [ ] `exception`: `ConflictException`, `EntityNotFoundException`
 - [ ] `util`: `JsonUtil` (Gson setup + `LocalDate`/`LocalTime` adapters)
 - [ ] `util`: ID generator (e.g. `P001`, `RDV042`)
 - [ ] `util`: `InputUtil` (safe console reading) if console UI
-- [ ] `dao`: `GenericDAO<T,ID>` interface
-- [ ] `dao`: `JsonDAO<T,ID>` (load all at startup into `Map`, flush on every write, return shared instances)
 - [ ] If using objects: custom Gson adapter writing only the ID, resolved after load in dependency order
-- [ ] Test `JsonDAO` with `Patient` only (save, reload after restart)
 
 ## 5. First vertical slice: Patient (F1)
 
@@ -122,15 +123,5 @@ Root package: `radiocare`. Layers: `view → controller → service → dao → 
 - [ ] Consistent error messages when a conflict is raised (list all violations)
 - [ ] Input validation (dates, numbers, empty fields)
 - [ ] Controllers contain no business logic, views contain no business logic (check once)
-
-## 13. Wrap-up
-
-- [ ] Seed-data loader (realistic JSON for the demo)
-- [ ] Demo script (create RDV, trigger each conflict, complete RDV, pay invoice, show balance)
-- [ ] Final class diagram (match the code)
-- [ ] README (how to run, architecture, assumptions and spec gaps)
-- [ ] Clean unused code, unify naming
-- [ ] Final run from a clean clone
-- [ ] Prepare answers on AI usage (the assignment motto is "With AI or Without AI")
 
 ---

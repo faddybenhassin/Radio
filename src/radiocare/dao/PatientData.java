@@ -1,4 +1,4 @@
-package radiocare.DAO;
+package radiocare.dao;
 
 import radiocare.model.Patient;
 

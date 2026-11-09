@@ -1,4 +1,4 @@
-package radiocare.presentation;
+package radiocare.view;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -59,6 +59,7 @@ public class PatientUI {
             }
         }
         sc.close();
-        return new Patient(id, name, date, telephone, email, numAssurance, solde,historyExams);
+        // deleted the items to avoid error this code is gonna get deleted either way
+        return new Patient();
     }
 }

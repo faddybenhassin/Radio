@@ -1,7 +1,7 @@
 package radiocare.controller;
 
 import radiocare.model.Patient;
-import radiocare.presentation.PatientUI;
+import radiocare.view.PatientUI;
 
 public class PatientController {
     public void PatientCreation(){

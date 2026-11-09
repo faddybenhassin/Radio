@@ -31,6 +31,8 @@ public class Patient {
     private List<String> historiqueExamensIDs = new ArrayList<>();
 
 
+    public Patient(){}
+
     public Patient(String cinMatricule, String nom, String prenom, LocalDate dateNaissance,
                    String telephone, String email, String numAssurance) {
         this.cinMatricule = cinMatricule;
