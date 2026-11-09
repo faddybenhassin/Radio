@@ -1,20 +1,27 @@
 package radiocare.model;
 
+import radiocare.model.enums.CodeActe;
 import radiocare.model.enums.CodeResultat;
-import radiocare.model.enums.LibelleExamen;
 
+import java.util.Objects;
+
+/* record of a medical examination*/
 public class ExamenMedical {
     private String idExamen;
-    private CodeResultat codeActe;
-    private LibelleExamen libelle; 
+    /* code of the examination ( IRM_CEREBRALE, SCANNER_THORACIQUE, ECHO_ABDOMINALE, RX_POUMON) */
+    private CodeActe codeActe;
+    /* label for the examination */
+    private String libelle;
+    /* estimated duration in minutes for the exam */
     private int dureeEstimeeMinutes;
+    /*hourly rate for the examination */
     private double tarifHT;
 
-    public ExamenMedical(CodeResultat codeActe, int dureeEstimeeMinutes, String idExamen, LibelleExamen libelle, double tarifHT) {
-        this.codeActe = codeActe;
-        this.dureeEstimeeMinutes = dureeEstimeeMinutes;
+    public ExamenMedical(String idExamen, CodeActe codeActe, String libelle, int dureeEstimeeMinutes, double tarifHT) {
         this.idExamen = idExamen;
+        this.codeActe = codeActe;
         this.libelle = libelle;
+        this.dureeEstimeeMinutes = dureeEstimeeMinutes;
         this.tarifHT = tarifHT;
     }
 
@@ -26,19 +33,19 @@ public class ExamenMedical {
         this.idExamen = idExamen;
     }
 
-    public CodeResultat getCodeActe() {
+    public CodeActe getCodeActe() {
         return codeActe;
     }
 
-    public void setCodeActe(CodeResultat codeActe) {
+    public void setCodeActe(CodeActe codeActe) {
         this.codeActe = codeActe;
     }
 
-    public LibelleExamen getLibelle() {
+    public String getLibelle() {
         return libelle;
     }
 
-    public void setLibelle(LibelleExamen libelle) {
+    public void setLibelle(String libelle) {
         this.libelle = libelle;
     }
 
@@ -57,5 +64,22 @@ public class ExamenMedical {
     public void setTarifHT(double tarifHT) {
         this.tarifHT = tarifHT;
     }
-    
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof ExamenMedical that)) return false;
+        return Objects.equals(idExamen, that.idExamen);
+    }
+
+    @Override
+    public String toString() {
+        return "ExamenMedical{" +
+                "idExamen='" + idExamen + '\'' +
+                ", codeActe=" + codeActe +
+                ", libelle='" + libelle + '\'' +
+                ", dureeEstimeeMinutes=" + dureeEstimeeMinutes +
+                ", tarifHT=" + tarifHT +
+                '}';
+    }
 }
