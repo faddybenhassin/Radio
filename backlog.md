@@ -39,7 +39,7 @@ Root package: `radiocare`. Layers: `view → controller → service → dao → 
 - [X] 4. `EquipementImagerie`
 - [X] 5. `SalleRadiologie`
 - [X] 6. `ExamenMedical`
-- [ ] 7. `RendezVous`
+- [X] 7. `RendezVous`
 - [ ] 8. `CompteRenduMedical`
 - [ ] 9. `FactureMedicale`
 - [ ] 10. `Paiement`
