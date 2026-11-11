@@ -24,7 +24,7 @@ Root package: `radiocare`. Layers: `view → controller → service → dao → 
 - [X] `StatutEquipement` (EN_SERVICE, EN_PANNE, EN_MAINTENANCE)
 - [X] `Habilitation` (IRM, SCANNER, RAYONS_X)
 - [X] `Specialite` (NEURORADIOLOGIE, OSTEO, THORACIQUE)
-- [X] `StatutRDV` (PLANIFIE, EN_COURS, REALISE, ANNULE)
+- [X] `StatutRendezVous` (PLANIFIE, EN_COURS, REALISE, ANNULE)
 - [X] `CodeResultat` (NORMAL, ANOMALIE, URGENT)
 - [X] `StatutPaiement` (REGLEE, EN_ATTENTE, RETARD)
 - [X] `ModePaiement` (ESPECES, CHEQUE, CARTE, VIREMENT)
