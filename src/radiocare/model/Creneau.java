@@ -49,6 +49,11 @@ public class Creneau {
     }
 
     @Override
+    public int hashCode() {
+        return Objects.hash(jour, debut, fin);
+    }
+
+    @Override
     public String toString() {
         return jour + " " + debut + "-" + fin;
     }

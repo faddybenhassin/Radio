@@ -122,6 +122,11 @@ public class RendezVous {
         return Objects.equals(idRdv, that.idRdv);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getIdRdv());
+    }
+
     @Override 
     public String toString(){
         return "RendezVous{" +

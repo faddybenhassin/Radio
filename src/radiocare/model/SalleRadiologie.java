@@ -92,6 +92,11 @@ public class SalleRadiologie{
     }
 
     @Override
+    public int hashCode() {
+        return Objects.hashCode(getIdSalle());
+    }
+
+    @Override
     public String toString() {
         return "SalleRadiologie{" +
                 "idSalle='" + idSalle + '\'' +

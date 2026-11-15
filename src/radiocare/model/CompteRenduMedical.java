@@ -83,6 +83,11 @@ public class CompteRenduMedical {
     }
 
     @Override
+    public int hashCode() {
+        return Objects.hashCode(getIdCompteRendu());
+    }
+
+    @Override
     public String toString() {
         return "CompteRenduMedical{" +
                 "idCompteRendu='" + idCompteRendu + '\'' +

@@ -94,6 +94,11 @@ public class MedecinRadiologue {
     }
 
     @Override
+    public int hashCode() {
+        return Objects.hashCode(getIdMedecin());
+    }
+
+    @Override
     public String toString() {
         return "MedecinRadiologue{" +
                 "idMedecin='" + idMedecin + '\'' +

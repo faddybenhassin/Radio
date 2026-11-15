@@ -70,6 +70,11 @@ public class ExamenMedical {
     }
 
     @Override
+    public int hashCode() {
+        return Objects.hashCode(getIdExamen());
+    }
+
+    @Override
     public String toString() {
         return "ExamenMedical{" +
                 "idExamen='" + idExamen + '\'' +

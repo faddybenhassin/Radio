@@ -105,6 +105,11 @@ public class ManipulateurRadio {
     }
 
     @Override
+    public int hashCode() {
+        return Objects.hashCode(getIdManip());
+    }
+
+    @Override
     public String toString() {
         return "ManipulateurRadio{" +
                 "idManip='" + idManip + '\'' +

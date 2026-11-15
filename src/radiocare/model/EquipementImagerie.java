@@ -77,6 +77,11 @@ public class EquipementImagerie {
     }
 
     @Override
+    public int hashCode() {
+        return Objects.hashCode(getIdEquipement());
+    }
+
+    @Override
     public String toString() {
         return "EquipementImagerie{" +
                 "idEquipement='" + idEquipement + '\'' +

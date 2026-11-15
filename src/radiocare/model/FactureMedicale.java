@@ -105,6 +105,11 @@ public class FactureMedicale {
     }
 
     @Override
+    public int hashCode() {
+        return Objects.hashCode(getNumFacture());
+    }
+
+    @Override
     public String toString() {
         return "FactureMedicale{" +
                 "numFacture='" + numFacture + '\'' +

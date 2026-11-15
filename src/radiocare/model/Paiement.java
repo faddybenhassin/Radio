@@ -80,6 +80,11 @@ public class Paiement {
     }
 
     @Override
+    public int hashCode() {
+        return Objects.hashCode(getIdPaiement());
+    }
+
+    @Override
     public String toString() {
         return "Paiement{" +
                 "idPaiement='" + idPaiement + '\'' +
