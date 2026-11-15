@@ -7,7 +7,7 @@ import radiocare.model.enums.StatutRendezVous;
 
 public class RendezVous {
 
-    private String id_rdv;
+    private String idRdv;
 
     private LocalDate date;
 
@@ -23,7 +23,7 @@ public class RendezVous {
 
     private StatutRendezVous statut;
 
-    public RendezVous(LocalDate date, int dureeMinutes, LocalTime heureDebut, String idExam, String idManip, String idMedecin, String idPatient, String idSalle, String id_rdv, StatutRendezVous statut) {
+    public RendezVous(LocalDate date, int dureeMinutes, LocalTime heureDebut, String idExam, String idManip, String idMedecin, String idPatient, String idSalle, String idRdv, StatutRendezVous statut) {
         this.date = date;
         this.dureeMinutes = dureeMinutes;
         this.heureDebut = heureDebut;
@@ -32,16 +32,16 @@ public class RendezVous {
         this.idMedecin = idMedecin;
         this.idPatient = idPatient;
         this.idSalle = idSalle;
-        this.id_rdv = id_rdv;
+        this.idRdv = idRdv;
         this.statut = statut;
     }
 
-    public String getId_rdv() {
-        return id_rdv;
+    public String getIdRdv() {
+        return idRdv;
     }
 
-    public void setId_rdv(String id_rdv) {
-        this.id_rdv = id_rdv;
+    public void setIdRdv(String idRdv) {
+        this.idRdv = idRdv;
     }
 
     public LocalDate getDate() {
@@ -119,13 +119,13 @@ public class RendezVous {
     @Override 
     public boolean equals(Object o){
         if(!(o instanceof RendezVous that))return false;
-        return Objects.equals(id_rdv, that.id_rdv);
+        return Objects.equals(idRdv, that.idRdv);
     }
 
     @Override 
     public String toString(){
         return "RendezVous{" +
-            "id_rdv='" + id_rdv + '\'' +
+            "idRdv='" + idRdv + '\'' +
             ", date=" + date +
             ", heureDebut=" + heureDebut +
             ", dureeMinutes=" + dureeMinutes +

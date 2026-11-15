@@ -13,18 +13,18 @@ public class SalleRadiologie{
     // note: i feel typeSalle is redundant i might delete it later if not needed
     private TypeEquipement typeSalle;
 
-    private String equipementAttribueID;
+    private String equipementAttribueId;
 
     private String normeBlindagePlomb;
 
     private boolean statutDispo;
 
-    public SalleRadiologie(String idSalle, String nom, int numeroEtage, TypeEquipement typeSalle, String equipementAttribueID, String normeBlindagePlomb, boolean statutDispo) {
+    public SalleRadiologie(String idSalle, String nom, int numeroEtage, TypeEquipement typeSalle, String equipementAttribueId, String normeBlindagePlomb, boolean statutDispo) {
         this.idSalle = idSalle;
         this.nom = nom;
         this.numeroEtage = numeroEtage;
         this.typeSalle = typeSalle;
-        this.equipementAttribueID = equipementAttribueID;
+        this.equipementAttribueId = equipementAttribueId;
         this.normeBlindagePlomb = normeBlindagePlomb;
         this.statutDispo = statutDispo;
     }
@@ -61,12 +61,12 @@ public class SalleRadiologie{
         this.typeSalle = typeSalle;
     }
 
-    public String getEquipementAttribueID() {
-        return equipementAttribueID;
+    public String getEquipementAttribueId() {
+        return equipementAttribueId;
     }
 
-    public void setEquipementAttribueID(String equipementAttribueID) {
-        this.equipementAttribueID = equipementAttribueID;
+    public void setEquipementAttribueId(String equipementAttribueId) {
+        this.equipementAttribueId = equipementAttribueId;
     }
 
     public String getNormeBlindagePlomb() {
@@ -98,7 +98,7 @@ public class SalleRadiologie{
                 ", nom='" + nom + '\'' +
                 ", numeroEtage=" + numeroEtage +
                 ", typeSalle=" + typeSalle +
-                ", equipementAttribueID='" + equipementAttribueID + '\'' +
+                ", equipementAttribueId='" + equipementAttribueId + '\'' +
                 ", normeBlindagePlomb='" + normeBlindagePlomb + '\'' +
                 ", statutDispo=" + statutDispo +
                 '}';

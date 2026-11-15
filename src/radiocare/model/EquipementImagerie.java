@@ -34,16 +34,16 @@ public class EquipementImagerie {
         return type;
     }
 
-    public void setType(TypeEquipement Type) {
-        this.type = Type;
+    public void setType(TypeEquipement type) {
+        this.type = type;
     }
 
     public String getMarque() {
         return marque;
     }
 
-    public void setMarque(String Marque) {
-        this.marque = Marque;
+    public void setMarque(String marque) {
+        this.marque = marque;
     }
 
     public double getHeuresCumules() {

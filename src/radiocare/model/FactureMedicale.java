@@ -1,30 +1,30 @@
 package radiocare.model;
 
-import radiocare.model.enums.StatutEquipement;
+import radiocare.model.enums.StatutPaiement;
 
 import java.util.Objects;
 
 public class FactureMedicale {
     private String numFacture;
     private String idPatient;
-    private String idRDV;
-    private double montantHT;
-    private final double tauxTVA = 0.19;
-    private double montantTTC;
+    private String idRdv;
+    private double montantHt;
+    private final double tauxTva = 0.19;
+    private double montantTtc;
     private double partAssurance;
     private double partPatient;
-    private StatutEquipement statutPaiement;
+    private StatutPaiement statutPaiement;
 
 
     public FactureMedicale() {
     }
 
-    public FactureMedicale(String numFacture, String idPatient, String idRDV, double montantHT, double montantTTC, double partAssurance, double partPatient, StatutEquipement statutPaiement) {
+    public FactureMedicale(String numFacture, String idPatient, String idRdv, double montantHt, double montantTtc, double partAssurance, double partPatient, StatutPaiement statutPaiement) {
         this.numFacture = numFacture;
         this.idPatient = idPatient;
-        this.idRDV = idRDV;
-        this.montantHT = montantHT;
-        this.montantTTC = montantTTC;
+        this.idRdv = idRdv;
+        this.montantHt = montantHt;
+        this.montantTtc = montantTtc;
         this.partAssurance = partAssurance;
         this.partPatient = partPatient;
         this.statutPaiement = statutPaiement;
@@ -46,32 +46,32 @@ public class FactureMedicale {
         this.idPatient = idPatient;
     }
 
-    public String getIdRDV() {
-        return idRDV;
+    public String getIdRdv() {
+        return idRdv;
     }
 
-    public void setIdRDV(String idRDV) {
-        this.idRDV = idRDV;
+    public void setIdRdv(String idRdv) {
+        this.idRdv = idRdv;
     }
 
-    public double getMontantHT() {
-        return montantHT;
+    public double getMontantHt() {
+        return montantHt;
     }
 
-    public void setMontantHT(double montantHT) {
-        this.montantHT = montantHT;
+    public void setMontantHt(double montantHt) {
+        this.montantHt = montantHt;
     }
 
-    public double getTauxTVA() {
-        return tauxTVA;
+    public double getTauxTva() {
+        return tauxTva;
     }
 
-    public double getMontantTTC() {
-        return montantTTC;
+    public double getMontantTtc() {
+        return montantTtc;
     }
 
-    public void setMontantTTC(double montantTTC) {
-        this.montantTTC = montantTTC;
+    public void setMontantTtc(double montantTtc) {
+        this.montantTtc = montantTtc;
     }
 
     public double getPartAssurance() {
@@ -90,11 +90,11 @@ public class FactureMedicale {
         this.partPatient = partPatient;
     }
 
-    public StatutEquipement getStatutPaiement() {
+    public StatutPaiement getStatutPaiement() {
         return statutPaiement;
     }
 
-    public void setStatutPaiement(StatutEquipement statutPaiement) {
+    public void setStatutPaiement(StatutPaiement statutPaiement) {
         this.statutPaiement = statutPaiement;
     }
 
@@ -109,10 +109,10 @@ public class FactureMedicale {
         return "FactureMedicale{" +
                 "numFacture='" + numFacture + '\'' +
                 ", idPatient='" + idPatient + '\'' +
-                ", idRDV='" + idRDV + '\'' +
-                ", montantHT=" + montantHT +
-                ", tauxTVA=" + tauxTVA +
-                ", montantTTC=" + montantTTC +
+                ", idRdv='" + idRdv + '\'' +
+                ", montantHt=" + montantHt +
+                ", tauxTva=" + tauxTva +
+                ", montantTtc=" + montantTtc +
                 ", partAssurance=" + partAssurance +
                 ", partPatient=" + partPatient +
                 ", statutPaiement=" + statutPaiement +

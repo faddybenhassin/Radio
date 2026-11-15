@@ -13,14 +13,14 @@ public class ExamenMedical {
 
     private int dureeEstimeeMinutes;
 
-    private double tarifHT;
+    private double tarifHt;
 
-    public ExamenMedical(String idExamen, String codeActe, LibelleExamen libelle, int dureeEstimeeMinutes, double tarifHT) {
+    public ExamenMedical(String idExamen, String codeActe, LibelleExamen libelle, int dureeEstimeeMinutes, double tarifHt) {
         this.idExamen = idExamen;
         this.codeActe = codeActe;
         this.libelle = libelle;
         this.dureeEstimeeMinutes = dureeEstimeeMinutes;
-        this.tarifHT = tarifHT;
+        this.tarifHt = tarifHt;
     }
 
     public String getIdExamen() {
@@ -55,12 +55,12 @@ public class ExamenMedical {
         this.dureeEstimeeMinutes = dureeEstimeeMinutes;
     }
 
-    public double getTarifHT() {
-        return tarifHT;
+    public double getTarifHt() {
+        return tarifHt;
     }
 
-    public void setTarifHT(double tarifHT) {
-        this.tarifHT = tarifHT;
+    public void setTarifHt(double tarifHt) {
+        this.tarifHt = tarifHt;
     }
 
     @Override
@@ -76,7 +76,7 @@ public class ExamenMedical {
                 ", codeActe=" + codeActe +
                 ", libelle='" + libelle + '\'' +
                 ", dureeEstimeeMinutes=" + dureeEstimeeMinutes +
-                ", tarifHT=" + tarifHT +
+                ", tarifHt=" + tarifHt +
                 '}';
     }
 }

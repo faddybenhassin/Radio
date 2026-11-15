@@ -21,7 +21,7 @@ public class Patient {
 
     private double soldeCompte;
 
-    private List<String> historiqueExamensIDs = new ArrayList<>();
+    private List<String> historiqueExamensIds = new ArrayList<>();
 
     public Patient(){}
 
@@ -101,12 +101,12 @@ public class Patient {
         this.soldeCompte = soldeCompte;
     }
 
-    public List<String> getHistoriqueExamensIDs() {
-        return historiqueExamensIDs;
+    public List<String> getHistoriqueExamensIds() {
+        return historiqueExamensIds;
     }
 
-    public void setHistoriqueExamensIDs(List<String> historiqueExamensIDs) {
-        this.historiqueExamensIDs = historiqueExamensIDs;
+    public void setHistoriqueExamensIds(List<String> historiqueExamensIds) {
+        this.historiqueExamensIds = historiqueExamensIds;
     }
 
     @Override
@@ -126,7 +126,7 @@ public class Patient {
                 ", email='" + email + '\'' +
                 ", numAssurance='" + numAssurance + '\'' +
                 ", soldeCompte=" + soldeCompte +
-                ", historiqueExamensIDs=" + historiqueExamensIDs +
+                ", historiqueExamensIds=" + historiqueExamensIds +
                 '}';
     }
 }

@@ -6,91 +6,91 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class CompteRenduMedical {
-    private String ID_CompteRendu;
-    private String ID_RDV;
-    private LocalDate Date;
-    private String RefOrdonnanceTextuelle;
-    private String TranscriptionDiagnosticTextuel;
-    private CodeResultat CodeResultat;
+    private String idCompteRendu;
+    private String idRdv;
+    private LocalDate date;
+    private String refOrdonnanceTextuelle;
+    private String transcriptionDiagnosticTextuel;
+    private CodeResultat codeResultat;
 
 
     public CompteRenduMedical() {
     }
 
-    public CompteRenduMedical(String ID_CompteRendu, String ID_RDV, LocalDate date, String refOrdonnanceTextuelle, String transcriptionDiagnosticTextuel, CodeResultat codeResultat) {
-        this.ID_CompteRendu = ID_CompteRendu;
-        this.ID_RDV = ID_RDV;
-        Date = date;
-        RefOrdonnanceTextuelle = refOrdonnanceTextuelle;
-        TranscriptionDiagnosticTextuel = transcriptionDiagnosticTextuel;
-        CodeResultat = codeResultat;
+    public CompteRenduMedical(String idCompteRendu, String idRdv, LocalDate date, String refOrdonnanceTextuelle, String transcriptionDiagnosticTextuel, CodeResultat codeResultat) {
+        this.idCompteRendu = idCompteRendu;
+        this.idRdv = idRdv;
+        this.date = date;
+        this.refOrdonnanceTextuelle = refOrdonnanceTextuelle;
+        this.transcriptionDiagnosticTextuel = transcriptionDiagnosticTextuel;
+        this.codeResultat = codeResultat;
     }
 
 
-    public String getID_CompteRendu() {
-        return ID_CompteRendu;
+    public String getIdCompteRendu() {
+        return idCompteRendu;
     }
 
-    public void setID_CompteRendu(String ID_CompteRendu) {
-        this.ID_CompteRendu = ID_CompteRendu;
+    public void setIdCompteRendu(String idCompteRendu) {
+        this.idCompteRendu = idCompteRendu;
     }
 
-    public String getID_RDV() {
-        return ID_RDV;
+    public String getIdRdv() {
+        return idRdv;
     }
 
-    public void setID_RDV(String ID_RDV) {
-        this.ID_RDV = ID_RDV;
+    public void setIdRdv(String idRdv) {
+        this.idRdv = idRdv;
     }
 
     public LocalDate getDate() {
-        return Date;
+        return date;
     }
 
     public void setDate(LocalDate date) {
-        Date = date;
+        this.date = date;
     }
 
     public String getRefOrdonnanceTextuelle() {
-        return RefOrdonnanceTextuelle;
+        return refOrdonnanceTextuelle;
     }
 
     public void setRefOrdonnanceTextuelle(String refOrdonnanceTextuelle) {
-        RefOrdonnanceTextuelle = refOrdonnanceTextuelle;
+        this.refOrdonnanceTextuelle = refOrdonnanceTextuelle;
     }
 
     public String getTranscriptionDiagnosticTextuel() {
-        return TranscriptionDiagnosticTextuel;
+        return transcriptionDiagnosticTextuel;
     }
 
     public void setTranscriptionDiagnosticTextuel(String transcriptionDiagnosticTextuel) {
-        TranscriptionDiagnosticTextuel = transcriptionDiagnosticTextuel;
+        this.transcriptionDiagnosticTextuel = transcriptionDiagnosticTextuel;
     }
 
     public CodeResultat getCodeResultat() {
-        return CodeResultat;
+        return codeResultat;
     }
 
     public void setCodeResultat(CodeResultat codeResultat) {
-        CodeResultat = codeResultat;
+        this.codeResultat = codeResultat;
     }
 
 
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof CompteRenduMedical that)) return false;
-        return Objects.equals(ID_CompteRendu, that.ID_CompteRendu);
+        return Objects.equals(idCompteRendu, that.idCompteRendu);
     }
 
     @Override
     public String toString() {
         return "CompteRenduMedical{" +
-                "ID_CompteRendu='" + ID_CompteRendu + '\'' +
-                ", ID_RDV='" + ID_RDV + '\'' +
-                ", Date=" + Date +
-                ", RefOrdonnanceTextuelle='" + RefOrdonnanceTextuelle + '\'' +
-                ", TranscriptionDiagnosticTextuel='" + TranscriptionDiagnosticTextuel + '\'' +
-                ", CodeResultat=" + CodeResultat +
+                "idCompteRendu='" + idCompteRendu + '\'' +
+                ", idRdv='" + idRdv + '\'' +
+                ", date=" + date +
+                ", refOrdonnanceTextuelle='" + refOrdonnanceTextuelle + '\'' +
+                ", transcriptionDiagnosticTextuel='" + transcriptionDiagnosticTextuel + '\'' +
+                ", codeResultat=" + codeResultat +
                 '}';
     }
 }
