@@ -48,7 +48,6 @@ Root package: `radiocare`. Layers: `view → controller → service → dao → 
 
 ## 4. Infrastructure
 
-- [X] `dao`: `GenericDAO<T,ID>` interface
 - [ ] `dao`: `JsonDAO<T,ID>` (load all at startup into `Map`, flush on every write, return shared instances)
 - [ ] Test `JsonDAO` with `Patient` only (save, reload after restart)
 - [ ] `exception`: `ConflictException`, `EntityNotFoundException`
