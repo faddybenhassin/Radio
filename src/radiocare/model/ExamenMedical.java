@@ -4,16 +4,15 @@ import radiocare.model.enums.LibelleExamen;
 
 import java.util.Objects;
 
-/* record of a medical examination*/
 public class ExamenMedical {
     private String idExamen;
-    /* code of the examination ( IRM_CEREBRALE, SCANNER_THORACIQUE, ECHO_ABDOMINALE, RX_POUMON) */
+
     private String codeActe;
-    /* label for the examination */
+
     private LibelleExamen libelle;
-    /* estimated duration in minutes for the exam */
+
     private int dureeEstimeeMinutes;
-    /*hourly rate for the examination */
+
     private double tarifHT;
 
     public ExamenMedical(String idExamen, String codeActe, LibelleExamen libelle, int dureeEstimeeMinutes, double tarifHT) {
@@ -63,7 +62,6 @@ public class ExamenMedical {
     public void setTarifHT(double tarifHT) {
         this.tarifHT = tarifHT;
     }
-
 
     @Override
     public boolean equals(Object o) {

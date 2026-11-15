@@ -9,16 +9,17 @@ import java.util.Scanner;
 import radiocare.model.Patient;
 
 public class PatientUI {
+
     public static Patient ajoutPatient(){
         Scanner sc = new Scanner(System.in);
         // later on , we add a code to make sure the new creation of the patient does't
         // give him an already existing id.
         System.out.print("patient ID   : ");
         String id = sc.nextLine();
-        
+
         System.out.print("patient name: ");
         String name = sc.nextLine();
-        
+
         LocalDate date = null;
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         while(date == null){

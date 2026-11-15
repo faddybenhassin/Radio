@@ -5,19 +5,14 @@ import java.time.LocalTime;
 import java.util.Objects;
 import radiocare.model.enums.StatutRendezVous;
 
-
-// specify a period of time for the patient at a certain date
 public class RendezVous {
-    //ID  unique de rendez-vous
+
     private String id_rdv;
-    
-    //yyyy/mm/dd of the RDV
+
     private LocalDate date;
 
-    //time where the RDV started
     private LocalTime heureDebut;
 
-    //duration
     private int dureeMinutes;
 
     private String idPatient;
@@ -26,7 +21,6 @@ public class RendezVous {
     private String idSalle;
     private String idExam;
 
-    //could be planifie,en cours,realise or annule
     private StatutRendezVous statut;
 
     public RendezVous(LocalDate date, int dureeMinutes, LocalTime heureDebut, String idExam, String idManip, String idMedecin, String idPatient, String idSalle, String id_rdv, StatutRendezVous statut) {

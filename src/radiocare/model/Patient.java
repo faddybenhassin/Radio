@@ -5,12 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Patient of the radiology center.
- */
 public class Patient {
 
-    /** National ID number (CIN). Unique, used as the identifier. */
     private String cinMatricule;
 
     private String nom;
@@ -21,15 +17,11 @@ public class Patient {
 
     private String email;
 
-    /** Health insurance number; may be empty if the patient is not insured. */
     private String numAssurance;
 
-    /** Account balance in dinars. Negative means the patient owes money. */
     private double soldeCompte;
 
-    /** IDs of the patient's {@link } (exam history). */
     private List<String> historiqueExamensIDs = new ArrayList<>();
-
 
     public Patient(){}
 
@@ -122,7 +114,6 @@ public class Patient {
         if (!(o instanceof Patient patient)) return false;
         return Objects.equals(cinMatricule, patient.cinMatricule);
     }
-
 
     @Override
     public String toString() {

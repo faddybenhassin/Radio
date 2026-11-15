@@ -5,37 +5,21 @@ import java.util.List;
 import java.util.Objects;
 
 import radiocare.model.enums.Specialite;
-/**
- * Radiologist doctor working at the center.
- */
+
 public class MedecinRadiologue {
 
-    /** Unique identifier of the doctor. */
     private String idMedecin;
 
-    /** National ID number (CIN) of the doctor. */
     private String cin;
 
     private String nom;
     private String prenom;
 
-    /** Medical specialty: neuroradiology, osteo or thoracic. */
     private Specialite specialite;
 
-    /**
-     * Share of each act's price paid to the doctor as fees, as a fraction
-     * between 0 and 1 (0.15 means 15%).
-     */
     private double tarifPourcentageActe;
 
-    /**
-     * Weekly working hours: one {@link Creneau} per block the doctor works,
-     * repeated every week. An empty list means the doctor has no availability.
-     * Does not track booked appointments, those are checked through
-     * {@link RendezVous}.
-     */
     private List<Creneau> dispoPlanning = new ArrayList<>();
-
 
     public MedecinRadiologue(String idMedecin, String cin, String nom, String prenom, Specialite specialite, double tarifPourcentageActe, List<Creneau> dispoPlanning) {
         this.idMedecin = idMedecin;
@@ -122,4 +106,3 @@ public class MedecinRadiologue {
                 '}';
     }
 }
-

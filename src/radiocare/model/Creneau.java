@@ -4,14 +4,13 @@ import java.time.DayOfWeek;
 import java.time.LocalTime;
 import java.util.Objects;
 
-/**
- * Weekly recurring time slot, e.g. "Monday from 08:00 to 16:00".
- */
 public class Creneau {
-    private DayOfWeek jour;     // MONDAY, TUESDAY...
-    private LocalTime debut;    // 08:00
-    private LocalTime fin;      // 16:00
 
+    private DayOfWeek jour;
+
+    private LocalTime debut;
+
+    private LocalTime fin;
 
     public Creneau(DayOfWeek jour, LocalTime debut, LocalTime fin) {
         this.jour = jour;
