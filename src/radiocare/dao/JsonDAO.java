@@ -1,60 +1,103 @@
 package radiocare.dao;
 
+import radiocare.exception.PersistenceException;
+
+import java.io.IOException;
+import java.io.UncheckedIOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 import java.util.function.Function;
 
 public class JsonDAO<T, ID> {
 
-    private final Map<ID, T> store = new LinkedHashMap<>();
+    private final LinkedHashMap<ID, T> store = new LinkedHashMap<>();
+    private final Path file;
+    private final Class<T> type;
+    private final Function<T, ID> getId;
 
-    private final String filePath;
-
-    private final Class<T> entityClass;
-
-    private final Function<T, ID> idExtractor;
-
-    public JsonDAO(String filePath, Class<T> entityClass, Function<T, ID> idExtractor) {
-        this.filePath = filePath;
-        this.entityClass = entityClass;
-        this.idExtractor = idExtractor;
+    public JsonDAO(String filePath, Class<T> type, Function<T, ID> getId) {
+        this.file = Path.of(filePath);
+        this.type = type;
+        this.getId = getId;
         load();
     }
 
     protected void load() {
-        // TODO
+        if(!Files.exists(file)){
+            return;
+        }
+        try {
+            String json = Files.readString(file);
+            // comment this function out and import gson
+            List<T> list = gson.fromJson(json, TypeToken.getParameterized(List.class, type).getType());
+            if (list != null) {
+                for (T item : list) {
+                    store.put(getId.apply(item), item);
+                }
+            }
+        } catch (IOException e){
+            throw new UncheckedIOException(e);
+        }
     }
 
-    protected void flush() {
+    protected void write() {
         // TODO
     }
 
     public void save(T entity) {
-        // TODO
-    }
-
-    public T findById(ID id) {
-        // TODO
-        return null;
-    }
-
-    public List<T> findAll() {
-        // TODO
-        return List.of();
+        ID id = getId.apply(entity);
+        if (store.containsKey(id)) {
+            throw new IllegalArgumentException("ID deja existant: " + id);
+        }
+        store.put(id, entity);
+        try {
+            write();
+        } catch (PersistenceException e) {
+            store.remove(id);               // keep memory and file consistent
+            throw e;
+        }
     }
 
     public void update(T entity) {
-        // TODO
+        ID id = getId.apply(entity);
+        if (!store.containsKey(id)) {
+            throw new IllegalArgumentException("ID introuvable: " + id);
+        }
+        T ancien = store.put(id, entity);
+        try {
+            write();
+        } catch (PersistenceException e) {
+            store.put(id, ancien);
+            throw e;
+        }
     }
 
     public void delete(ID id) {
-        // TODO
+        if (!store.containsKey(id)) {
+            throw new IllegalArgumentException("ID introuvable: " + id);
+        }
+        T ancien = store.remove(id);
+        try {
+            write();
+        } catch (PersistenceException e) {
+            store.put(id, ancien);
+            throw e;
+        }
     }
 
+    public T findById(ID id) {
+        return store.get(id);
+    }
+
+    public List<T> findAll() {
+        return new ArrayList<>(store.values());
+    }
+
+
     public boolean existsById(ID id) {
-        // TODO
-        return false;
+        return store.containsKey(id);
     }
 }
