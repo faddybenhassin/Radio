@@ -21,7 +21,7 @@ public class EquipementImagerie {
         this.heuresRestantMaintenance = heuresRestantMaintenance;
         this.statut = statut;
     }
-    // getters and setters
+
     public String getIdEquipement() {
         return idEquipement;
     }
