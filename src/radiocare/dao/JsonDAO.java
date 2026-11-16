@@ -1,9 +1,13 @@
 package radiocare.dao;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import radiocare.exception.PersistenceException;
+import radiocare.util.JsonUtil;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;
+import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -17,6 +21,7 @@ public class JsonDAO<T, ID> {
     private final Path file;
     private final Class<T> type;
     private final Function<T, ID> getId;
+    private Gson gson = JsonUtil.gson();
 
     public JsonDAO(String filePath, Class<T> type, Function<T, ID> getId) {
         this.file = Path.of(filePath);
@@ -25,6 +30,9 @@ public class JsonDAO<T, ID> {
         load();
     }
 
+    private Type listType(){
+        return TypeToken.getParameterized(List.class, type).getType();
+    }
     protected void load() {
         if(!Files.exists(file)){
             return;
@@ -32,7 +40,7 @@ public class JsonDAO<T, ID> {
         try {
             String json = Files.readString(file);
             // comment this function out and import gson
-            List<T> list = gson.fromJson(json, TypeToken.getParameterized(List.class, type).getType());
+            List<T> list = gson.fromJson(json, listType());
             if (list != null) {
                 for (T item : list) {
                     store.put(getId.apply(item), item);
@@ -44,7 +52,12 @@ public class JsonDAO<T, ID> {
     }
 
     protected void write() {
-        // TODO
+        try {
+            Files.createDirectories(file.toAbsolutePath().getParent());
+            Files.writeString(file, gson.toJson(new ArrayList<>(store.values())));
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
+        }
     }
 
     public void save(T entity) {
