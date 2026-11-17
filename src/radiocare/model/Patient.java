@@ -125,16 +125,8 @@ public class Patient {
 
     @Override
     public String toString() {
-        return "Patient{" +
-                "cinMatricule='" + cinMatricule + '\'' +
-                ", nom='" + nom + '\'' +
-                ", prenom='" + prenom + '\'' +
-                ", dateNaissance=" + dateNaissance +
-                ", telephone='" + telephone + '\'' +
-                ", email='" + email + '\'' +
-                ", numAssurance='" + numAssurance + '\'' +
-                ", soldeCompte=" + soldeCompte +
-                ", historiqueExamensIds=" + historiqueExamensIds +
-                '}';
+        return cinMatricule + " / " + nom + " " + prenom + " / " + dateNaissance
+                + " / " + telephone + " / " + email
+                + " / " + String.format("%.2f DT", soldeCompte);
     }
 }

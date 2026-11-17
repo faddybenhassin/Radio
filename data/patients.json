@@ -1,1 +1,24 @@
-[]
+[
+  {
+    "cinMatricule": "sdf",
+    "nom": "ads",
+    "prenom": "ads",
+    "dateNaissance": "-0001-02-03",
+    "telephone": "sdfs",
+    "email": "sdfs@adsf",
+    "numAssurance": "351",
+    "soldeCompte": 0.0,
+    "historiqueExamensIds": []
+  },
+  {
+    "cinMatricule": "DFS",
+    "nom": "AAEF",
+    "prenom": "asd",
+    "dateNaissance": "1111-11-11",
+    "telephone": "3545",
+    "email": "sfsd@sfs",
+    "numAssurance": "1651",
+    "soldeCompte": 0.0,
+    "historiqueExamensIds": []
+  }
+]
