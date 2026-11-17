@@ -1,6 +1,7 @@
 package radiocare.dao;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonIOException;
 import com.google.gson.reflect.TypeToken;
 import radiocare.exception.PersistenceException;
 import radiocare.util.JsonUtil;
@@ -21,7 +22,7 @@ public class JsonDAO<T, ID> implements GenericDAO<T,ID> {
     private final Path file;
     private final Class<T> type;
     private final Function<T, ID> getId;
-    private Gson gson = JsonUtil.gson();
+    private final Gson gson = JsonUtil.gson();
 
     public JsonDAO(String filePath, Class<T> type, Function<T, ID> getId) {
         this.file = Path.of(filePath);
@@ -46,8 +47,8 @@ public class JsonDAO<T, ID> implements GenericDAO<T,ID> {
                     store.put(getId.apply(item), item);
                 }
             }
-        } catch (IOException e){
-            throw new UncheckedIOException(e);
+        } catch (IOException | JsonIOException e){
+            throw new PersistenceException("Echec lire: " + file, e);
         }
     }
 
@@ -55,8 +56,8 @@ public class JsonDAO<T, ID> implements GenericDAO<T,ID> {
         try {
             Files.createDirectories(file.toAbsolutePath().getParent());
             Files.writeString(file, gson.toJson(new ArrayList<>(store.values())));
-        } catch (IOException e) {
-            throw new UncheckedIOException(e);
+        } catch (IOException | JsonIOException e) {
+            throw new PersistenceException("Echec ecriture: " + file, e);
         }
     }
     @Override
