@@ -13,6 +13,6 @@ public class Main {
         PatientService service = new PatientService(dao);
         PatientController controller = new PatientController(service);
         PatientView view = new PatientView(controller);
-
+        view.saisirChoix();
     }
 }

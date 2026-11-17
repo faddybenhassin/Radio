@@ -31,7 +31,7 @@ public class PatientView {
     //0. Retour
     //* a better way to read String values
 
-    public void saisirLeChoix(){
+    public void saisirChoix(){
         while(choix != 0){
             boolean valid = true;
             System.out.println("saisir votre choix:\n1. Ajouter\n2. Modifier\n3. Supprimer\n4. Rechercher\n5. Lister\n6. Fiche patient\n0. Retour\n");
