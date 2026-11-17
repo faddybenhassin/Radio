@@ -20,25 +20,41 @@ public class PatientService {
 
     private void valider(Patient p) {
         if (p == null) {
-            throw new ValidationException("Patient obligatoire");
+            throw new ValidationException("Patient obligatoire.");
         }
         if (p.getCinMatricule() == null || p.getCinMatricule().isBlank()) {
-            throw new ValidationException("CIN obligatoire");
+            throw new ValidationException("CIN obligatoire.");
+        }
+        if(!p.getCinMatricule().matches("\\d{8}")){
+            throw new ValidationException("CIN doit contenir exactement 8 chiffres.");
         }
         if (p.getNom() == null || p.getNom().isBlank()) {
-            throw new ValidationException("Nom obligatoire");
+            throw new ValidationException("Nom obligatoire.");
         }
         if (p.getPrenom() == null || p.getPrenom().isBlank()) {
-            throw new ValidationException("Prenom obligatoire");
+            throw new ValidationException("Prenom obligatoire.");
         }
         if (p.getDateNaissance() == null) {
-            throw new ValidationException("Date de naissance obligatoire");
+            throw new ValidationException("Date de naissance obligatoire.");
         }
-        if (p.getDateNaissance().isAfter(LocalDate.now())) {
-            throw new ValidationException("Date de naissance dans le futur");
+        LocalDate minDate = LocalDate.of(LocalDate.now().getYear() - 120, 1, 1);
+        LocalDate today = LocalDate.now();
+
+        if (p.getDateNaissance().isBefore(minDate)) {
+            throw new ValidationException("La date de naissance ne peut pas remonter à plus de 120 ans.");
+        }
+
+        if (p.getDateNaissance().isAfter(today)) {
+            throw new ValidationException("La date de naissance ne peut pas être dans le futur.");
         }
         if (p.getTelephone() == null || p.getTelephone().isBlank()) {
             throw new ValidationException("Telephone obligatoire");
+        }
+        if(!p.getTelephone().matches("\\d{8}")){
+            throw new ValidationException("Le numéro de téléphone doit contenir exactement 8 chiffres.");
+        }
+        if (p.getNumAssurance() == null || p.getNumAssurance().isBlank()) {
+            throw new ValidationException("numAssurance obligatoire");
         }
         // check for mandatory @ seperator and allow uppercase and lower case letters and digits and symbols
         if (p.getEmail() == null ||

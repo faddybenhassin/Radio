@@ -64,7 +64,7 @@ public class JsonDAO<T, ID> implements GenericDAO<T,ID> {
     public void save(T entity) {
         ID id = getId.apply(entity);
         if (store.containsKey(id)) {
-            throw new IllegalArgumentException("ID deja existant: " + id);
+            throw new PersistenceException("ID deja existant: " + id);
         }
         store.put(id, entity);
         try {
@@ -78,7 +78,7 @@ public class JsonDAO<T, ID> implements GenericDAO<T,ID> {
     public void update(T entity) {
         ID id = getId.apply(entity);
         if (!store.containsKey(id)) {
-            throw new IllegalArgumentException("ID introuvable: " + id);
+            throw new PersistenceException("ID introuvable: " + id);
         }
         T ancien = store.put(id, entity);
         try {
@@ -91,7 +91,7 @@ public class JsonDAO<T, ID> implements GenericDAO<T,ID> {
     @Override
     public void delete(ID id) {
         if (!store.containsKey(id)) {
-            throw new IllegalArgumentException("ID introuvable: " + id);
+            throw new PersistenceException("ID introuvable: " + id);
         }
         T ancien = store.remove(id);
         try {
