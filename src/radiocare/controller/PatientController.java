@@ -14,10 +14,10 @@ public class PatientController {
     public PatientController(PatientService service){
         this.service = service;
     }
-    public Patient ajouter(String cinMatricule, String nom, String prenom, LocalDate dateNaissance,
-                           String telephone, String email, String numAssurance)
+
+    public Patient ajouter(Patient p)
     {
-        // TODO
+        System.out.println("done");
         return null;
     }
     public Patient modifier(String cinMatricule, String nom, String prenom, LocalDate dateNaissance,
