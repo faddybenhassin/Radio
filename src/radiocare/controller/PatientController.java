@@ -15,9 +15,10 @@ public class PatientController {
         this.service = service;
     }
 
-    public Patient ajouter(Patient p)
+    public Patient ajouter(String cinMatricule, String nom, String prenom, LocalDate dateNaissance,
+                           String telephone, String email, String numAssurance)
     {
-        System.out.println("done");
+        // TODO
         return null;
     }
     public Patient modifier(String cinMatricule, String nom, String prenom, LocalDate dateNaissance,
@@ -34,12 +35,6 @@ public class PatientController {
         return null;
     }
     public List<Patient> listerTous(){
-        // TODO
-        return List.of();
-    }
-
-    // not needed from the pdf but its a great add we need to work on this if we have the time
-    public List<Patient> rechercher(String texte){
         // TODO
         return List.of();
     }
