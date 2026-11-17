@@ -21,7 +21,7 @@ public class Patient {
 
     private double soldeCompte;
 
-    private List<String> historiqueExamensIds = new ArrayList<>();
+    private List<String> historiqueExamensIds;
 
     public Patient(){}
 
@@ -34,6 +34,9 @@ public class Patient {
         this.telephone = telephone;
         this.email = email;
         this.numAssurance = numAssurance;
+
+        this.soldeCompte = 0.0;
+        this.historiqueExamensIds = new ArrayList<>();
     }
 
     // getters and setters
