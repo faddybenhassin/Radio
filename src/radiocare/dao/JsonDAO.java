@@ -15,7 +15,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.function.Function;
 
-public class JsonDAO<T, ID> {
+public class JsonDAO<T, ID> implements GenericDAO<T,ID> {
 
     private final LinkedHashMap<ID, T> store = new LinkedHashMap<>();
     private final Path file;
@@ -59,7 +59,7 @@ public class JsonDAO<T, ID> {
             throw new UncheckedIOException(e);
         }
     }
-
+    @Override
     public void save(T entity) {
         ID id = getId.apply(entity);
         if (store.containsKey(id)) {
@@ -73,7 +73,7 @@ public class JsonDAO<T, ID> {
             throw e;
         }
     }
-
+    @Override
     public void update(T entity) {
         ID id = getId.apply(entity);
         if (!store.containsKey(id)) {
@@ -87,7 +87,7 @@ public class JsonDAO<T, ID> {
             throw e;
         }
     }
-
+    @Override
     public void delete(ID id) {
         if (!store.containsKey(id)) {
             throw new IllegalArgumentException("ID introuvable: " + id);
@@ -100,16 +100,16 @@ public class JsonDAO<T, ID> {
             throw e;
         }
     }
-
+    @Override
     public T findById(ID id) {
         return store.get(id);
     }
-
+    @Override
     public List<T> findAll() {
         return new ArrayList<>(store.values());
     }
 
-
+    @Override
     public boolean existsById(ID id) {
         return store.containsKey(id);
     }
