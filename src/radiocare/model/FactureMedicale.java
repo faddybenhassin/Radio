@@ -111,16 +111,11 @@ public class FactureMedicale {
 
     @Override
     public String toString() {
-        return "FactureMedicale{" +
-                "numFacture='" + numFacture + '\'' +
-                ", idPatient='" + idPatient + '\'' +
-                ", idRdv='" + idRdv + '\'' +
-                ", montantHt=" + montantHt +
-                ", tauxTva=" + tauxTva +
-                ", montantTtc=" + montantTtc +
-                ", partAssurance=" + partAssurance +
-                ", partPatient=" + partPatient +
-                ", statutPaiement=" + statutPaiement +
-                '}';
+        return numFacture + " / patient " + idPatient + " / RDV " + idRdv
+                + " / " + String.format("HT %.2f DT", montantHt)
+                + " / " + String.format("TTC %.2f DT", montantTtc)
+                + " / " + String.format("assurance %.2f DT", partAssurance)
+                + " / " + String.format("patient %.2f DT", partPatient)
+                + " / " + statutPaiement;
     }
 }

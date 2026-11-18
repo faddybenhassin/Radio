@@ -76,12 +76,8 @@ public class ExamenMedical {
 
     @Override
     public String toString() {
-        return "ExamenMedical{" +
-                "idExamen='" + idExamen + '\'' +
-                ", codeActe=" + codeActe +
-                ", libelle='" + libelle + '\'' +
-                ", dureeEstimeeMinutes=" + dureeEstimeeMinutes +
-                ", tarifHt=" + tarifHt +
-                '}';
+        return idExamen + " / " + codeActe + " / " + (libelle == null ? null : libelle.getLabel())
+                + " / " + dureeEstimeeMinutes + " min"
+                + " / " + String.format("%.2f DT HT", tarifHt);
     }
 }

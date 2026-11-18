@@ -14,8 +14,8 @@ Root package: `radiocare`. Layers: `view → controller → service → dao → 
 
 - [X] Create project
 - [X] Create packages: `model`, `model.enums`, `dao`, `service`, `service.conflict`, `controller`, `view`, `exception`, `util`
-- [ ] Create `data/` folder at project root for JSON files
-- [ ] Create `Main.java`
+- [X] Create `data/` folder at project root for JSON files
+- [X] Create `Main.java`
 - [X] Init git repo + `.gitignore`
 
 ## 2. Enums (`model.enums`)
@@ -48,35 +48,36 @@ Root package: `radiocare`. Layers: `view → controller → service → dao → 
 
 ## 4. Infrastructure
 
-- [ ] `dao`: `JsonDAO<T,ID>` (load all at startup into `Map`, flush on every write, return shared instances)
+- [X] `dao`: `JsonDAO<T,ID>` (load all at startup into `Map`, flush on every write, return shared instances)
 - [ ] Test `JsonDAO` with `Patient` only (save, reload after restart)
 - [ ] `exception`: `ConflictException`, `EntityNotFoundException`
-- [ ] `util`: `JsonUtil` (Gson setup + `LocalDate`/`LocalTime` adapters)
+- [X] `util`: `JsonUtil` (Gson setup + `LocalDate`/`LocalTime` adapters)
 - [ ] `util`: ID generator (e.g. `P001`, `RDV042`)
-- [ ] `util`: `InputUtil` (safe console reading) if console UI
+- [X] `util`: `InputUtil` (safe console reading) if console UI
 - [ ] If using objects: custom Gson adapter writing only the ID, resolved after load in dependency order
 
 ## 5. First vertical slice: Patient (F1)
 
-- [ ] `PatientDAO`
-- [ ] `PatientService` (CRUD + validation: unique CIN, email format, etc.)
-- [ ] `PatientController`
+- [X] `PatientDAO`
+- [X] `PatientService` (CRUD + validation: unique CIN, email format, etc.)
+- [X] `PatientController`
 - [ ] `PatientView` (add, edit, delete, search, show record)
 - [ ] Verify `patients.json` is written and reloaded correctly
 - [ ] Review the architecture before copying the pattern
 
 ## 6. Simple CRUD slices (copy the Patient pattern)
 
-- [ ] `MedecinRadiologue`: DAO, service, controller, view
-- [ ] `ManipulateurRadio`: DAO, service, controller, view
-- [ ] `EquipementImagerie`: DAO, service, controller, view
-- [ ] `SalleRadiologie`: DAO, service, controller, view (validate that an equipment is not assigned to two rooms)
-- [ ] `ExamenMedical`: DAO, service, controller, view
+- [X] `MedecinRadiologue`: DAO, service, controller, view
+- [X] `ManipulateurRadio`: DAO, service, controller, view
+- [X] `EquipementImagerie`: DAO, service, controller, view
+- [X] `SalleRadiologie`: DAO, service, controller, view (validate that an equipment is not assigned to two rooms)
+- [X] `ExamenMedical`: DAO, service, controller, view
 - [ ] Block deletion of an entity that is still referenced (patient with RDVs, equipment in a room, etc.)
+    (done for all entities except Patient: `PatientService.supprimer` still has the TODO)
 
 ## 7. Scheduling and conflict engine (F4, the core of the project)
 
-- [ ] `RendezVousDAO`, `RendezVousService`, `RendezVousController`, `RendezVousView`
+- [X] `RendezVousDAO`, `RendezVousService`, `RendezVousController`, `RendezVousView`
 - [ ] `ConflictEngine` (receives the DAOs it needs; `verifier()` returns all violations)
 - [ ] Availability check against doctor `dispoPlanning`
 - [ ] Conflict 1: double booking of room / equipment
@@ -90,8 +91,8 @@ Root package: `radiocare`. Layers: `view → controller → service → dao → 
 
 ## 8. Medical records and billing (F5, F6)
 
-- [ ] `CompteRenduMedical`: DAO, service, controller, view (store prescription ref and diagnosis text, F6)
-- [ ] `FactureMedicale`: DAO, service (HT → TVA 19% → TTC, insurance share vs patient share)
+- [X] `CompteRenduMedical`: DAO, service, controller, view (store prescription ref and diagnosis text, F6)
+- [X] `FactureMedicale`: DAO, service (HT → TVA 19% → TTC, insurance share vs patient share)
 - [ ] Auto-create the invoice when a RDV becomes REALISE
 - [ ] `Paiement`: DAO, service (store proof reference, update invoice status and patient `soldeCompte`)
 - [ ] Patient record summary (`BilanPatient`): exam history, total acts, insurance share, paid, remaining (F1)
@@ -112,13 +113,13 @@ Root package: `radiocare`. Layers: `view → controller → service → dao → 
 
 ## 11. Persistence check (F7)
 
-- [ ] One JSON file per entity (`patients.json`, `equipements.json`, ...)
-- [ ] App starts with missing/empty JSON files without crashing
-- [ ] Full restart test: create data, quit, relaunch, data is intact
+- [X] One JSON file per entity (`patients.json`, `equipements.json`, ...)
+- [X] App starts with missing/empty JSON files without crashing
+- [X] Full restart test: create data, quit, relaunch, data is intact
 
 ## 12. Menu and UI polish
 
-- [ ] `MainView` main menu linking all modules
+- [X] `MainView` main menu linking all modules
 - [ ] Consistent error messages when a conflict is raised (list all violations)
 - [ ] Input validation (dates, numbers, empty fields)
 - [ ] Controllers contain no business logic, views contain no business logic (check once)

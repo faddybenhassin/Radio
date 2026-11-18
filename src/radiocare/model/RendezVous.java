@@ -129,17 +129,9 @@ public class RendezVous {
 
     @Override 
     public String toString(){
-        return "RendezVous{" +
-            "idRdv='" + idRdv + '\'' +
-            ", date=" + date +
-            ", heureDebut=" + heureDebut +
-            ", dureeMinutes=" + dureeMinutes +
-            ", idPatient='" + idPatient + '\'' +
-            ", idMedecin='" + idMedecin + '\'' +
-            ", idManip='" + idManip + '\'' +
-            ", idSalle='" + idSalle + '\'' +
-            ", idExam='" + idExam + '\'' +
-            ", statut=" + statut +
-            '}';
+        return idRdv + " / " + date + " " + heureDebut + " (" + dureeMinutes + " min)"
+                + " / patient " + idPatient + " / examen " + idExam + " / salle " + idSalle
+                + " / medecin " + idMedecin + " / manip " + idManip
+                + " / " + statut;
     }
 }

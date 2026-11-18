@@ -98,14 +98,9 @@ public class SalleRadiologie{
 
     @Override
     public String toString() {
-        return "SalleRadiologie{" +
-                "idSalle='" + idSalle + '\'' +
-                ", nom='" + nom + '\'' +
-                ", numeroEtage=" + numeroEtage +
-                ", typeSalle=" + typeSalle +
-                ", equipementAttribueId='" + equipementAttribueId + '\'' +
-                ", normeBlindagePlomb='" + normeBlindagePlomb + '\'' +
-                ", statutDispo=" + statutDispo +
-                '}';
+        return idSalle + " / " + nom + " / etage " + numeroEtage + " / " + typeSalle
+                + " / equipement: " + (equipementAttribueId == null ? "aucun" : equipementAttribueId)
+                + " / blindage: " + normeBlindagePlomb
+                + " / " + (statutDispo ? "disponible" : "indisponible");
     }
 }
