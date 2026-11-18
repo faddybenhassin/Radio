@@ -6,10 +6,7 @@ import static radiocare.util.InputUtil.*;
 
 public class MainView {
 
-    // PatientView keeps its menu choice in a field, so once you leave with 0 a second
-    // call to saisirChoix() exits immediately. Until that is fixed in PatientView,
-    // a fresh PatientView is created each time the Patients menu is opened.
-    private final PatientController patientController;
+    private final PatientView patientView;
     private final MedecinRadiologueView medecinView;
     private final ManipulateurRadioView manipulateurView;
     private final EquipementImagerieView equipementView;
@@ -20,7 +17,7 @@ public class MainView {
     private final FactureMedicaleView factureView;
     private final PaiementView paiementView;
 
-    public MainView(PatientController patientController,
+    public MainView(PatientView patientView,
                     MedecinRadiologueView medecinView,
                     ManipulateurRadioView manipulateurView,
                     EquipementImagerieView equipementView,
@@ -30,7 +27,7 @@ public class MainView {
                     CompteRenduMedicalView compteRenduView,
                     FactureMedicaleView factureView,
                     PaiementView paiementView) {
-        this.patientController = patientController;
+        this.patientView = patientView;
         this.medecinView = medecinView;
         this.manipulateurView = manipulateurView;
         this.equipementView = equipementView;
@@ -50,7 +47,7 @@ public class MainView {
                     + "6. Examens\n7. Rendez-vous\n8. Comptes rendus\n9. Factures\n10. Paiements\n"
                     + "0. Quitter\n>>");
             switch (choix) {
-                case 1:  new PatientView(patientController).saisirChoix(); break;
+                case 1:  patientView.saisirChoix(); break;
                 case 2:  medecinView.saisirChoix(); break;
                 case 3:  manipulateurView.saisirChoix(); break;
                 case 4:  equipementView.saisirChoix(); break;

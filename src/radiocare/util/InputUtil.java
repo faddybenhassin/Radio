@@ -10,14 +10,14 @@ public final class InputUtil {
     private static final Scanner sc = new Scanner(System.in);
     public static String LireString(String message){
         System.out.print(message);
-        return sc.nextLine();
+        return sc.nextLine().trim();
     }
     public static LocalDate LireDate(String message){
         while(true){
             try{
                 return LocalDate.parse(LireString(message));
             }catch(DateTimeParseException e){
-                System.out.println("invalid date format");
+                System.out.println("invalid date format (YYYY:MM:DD).");
             }
         }
     }

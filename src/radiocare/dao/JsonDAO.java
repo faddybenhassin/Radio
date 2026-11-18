@@ -7,7 +7,6 @@ import radiocare.exception.PersistenceException;
 import radiocare.util.JsonUtil;
 
 import java.io.IOException;
-import java.io.UncheckedIOException;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Path;
