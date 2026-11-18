@@ -86,13 +86,8 @@ public class Paiement {
 
     @Override
     public String toString() {
-        return "Paiement{" +
-                "idPaiement='" + idPaiement + '\'' +
-                ", numFacture='" + numFacture + '\'' +
-                ", datePaiement=" + datePaiement +
-                ", montantRecu=" + montantRecu +
-                ", modePaiement=" + modePaiement +
-                ", referenceTextuellePreuve='" + referenceTextuellePreuve + '\'' +
-                '}';
+        return idPaiement + " / facture " + numFacture + " / " + datePaiement
+                + " / " + String.format("%.2f DT", montantRecu)
+                + " / " + modePaiement + " / preuve: " + referenceTextuellePreuve;
     }
 }

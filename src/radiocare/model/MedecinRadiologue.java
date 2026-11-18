@@ -100,14 +100,8 @@ public class MedecinRadiologue {
 
     @Override
     public String toString() {
-        return "MedecinRadiologue{" +
-                "idMedecin='" + idMedecin + '\'' +
-                ", cin='" + cin + '\'' +
-                ", nom='" + nom + '\'' +
-                ", prenom='" + prenom + '\'' +
-                ", specialite=" + specialite +
-                ", tarifPourcentageActe=" + tarifPourcentageActe +
-                ", dispoPlanning=" + dispoPlanning +
-                '}';
+        return idMedecin + " / " + nom + " " + prenom + " / CIN " + cin
+                + " / " + specialite + " / " + tarifPourcentageActe + " %"
+                + " / dispo: " + dispoPlanning;
     }
 }

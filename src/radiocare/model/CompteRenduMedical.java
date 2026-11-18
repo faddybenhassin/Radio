@@ -89,13 +89,8 @@ public class CompteRenduMedical {
 
     @Override
     public String toString() {
-        return "CompteRenduMedical{" +
-                "idCompteRendu='" + idCompteRendu + '\'' +
-                ", idRdv='" + idRdv + '\'' +
-                ", date=" + date +
-                ", refOrdonnanceTextuelle='" + refOrdonnanceTextuelle + '\'' +
-                ", transcriptionDiagnosticTextuel='" + transcriptionDiagnosticTextuel + '\'' +
-                ", codeResultat=" + codeResultat +
-                '}';
+        return idCompteRendu + " / RDV " + idRdv + " / " + date + " / " + codeResultat
+                + " / ordonnance: " + refOrdonnanceTextuelle
+                + " / diagnostic: " + transcriptionDiagnosticTextuel;
     }
 }

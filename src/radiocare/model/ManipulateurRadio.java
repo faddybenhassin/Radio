@@ -111,15 +111,10 @@ public class ManipulateurRadio {
 
     @Override
     public String toString() {
-        return "ManipulateurRadio{" +
-                "idManip='" + idManip + '\'' +
-                ", cin='" + cin + '\'' +
-                ", nom='" + nom + '\'' +
-                ", prenom='" + prenom + '\'' +
-                ", habilitations=" + habilitations +
-                ", tarifHoraire=" + tarifHoraire +
-                ", heuresGarde=" + heuresGarde +
-                ", statutDispo=" + statutDispo +
-                '}';
+        return idManip + " / " + nom + " " + prenom + " / CIN " + cin
+                + " / " + habilitations
+                + " / " + String.format("%.2f DT/h", tarifHoraire)
+                + " / garde: " + heuresGarde + " h"
+                + " / " + (statutDispo ? "disponible" : "indisponible");
     }
 }

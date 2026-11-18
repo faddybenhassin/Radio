@@ -83,13 +83,9 @@ public class EquipementImagerie {
 
     @Override
     public String toString() {
-        return "EquipementImagerie{" +
-                "idEquipement='" + idEquipement + '\'' +
-                ", type='" + type + '\'' +
-                ", marque='" + marque + '\'' +
-                ", heuresCumules=" + heuresCumules +
-                ", heuresRestantMaintenance='" + heuresRestantMaintenance + '\'' +
-                ", statut='" + statut +
-                '}';
+        return idEquipement + " / " + type + " / " + marque
+                + " / cumul: " + heuresCumules + " h"
+                + " / avant maintenance: " + heuresRestantMaintenance + " h"
+                + " / " + statut;
     }
 }

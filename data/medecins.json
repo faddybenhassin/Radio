@@ -1,0 +1,11 @@
+[
+  {
+    "idMedecin": "5555555",
+    "cin": "13467925",
+    "nom": "dd",
+    "prenom": "ff",
+    "specialite": "NEURORADIOLOGIE",
+    "tarifPourcentageActe": 20.0,
+    "dispoPlanning": []
+  }
+]
