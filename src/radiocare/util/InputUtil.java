@@ -17,7 +17,7 @@ public final class InputUtil {
             try{
                 return LocalDate.parse(LireString(message));
             }catch(DateTimeParseException e){
-                System.out.println("invalid date format (YYYY:MM:DD).");
+                System.out.println("invalid date format (AAAA:MM:JJ).");
             }
         }
     }

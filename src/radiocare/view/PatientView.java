@@ -104,7 +104,7 @@ public class PatientView {
                     Paid vs. remaining: what the patient has already paid through Paiement, and what’s still left (their soldeCompte).*/
                     break;
                 case 0:
-                    System.out.println("a bientot");
+                    System.out.println("retour au menu principal");
                     break;
                 default:
                     System.out.println("Choix invalide !");
