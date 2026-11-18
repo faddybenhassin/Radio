@@ -9,7 +9,7 @@ public final class InputUtil {
     public InputUtil(){}
     private static final Scanner sc = new Scanner(System.in);
     public static String LireString(String message){
-        System.out.println(message);
+        System.out.print(message);
         return sc.nextLine();
     }
     public static LocalDate LireDate(String message){
