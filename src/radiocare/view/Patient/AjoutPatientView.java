@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import static radiocare.util.InputUtil.LireDate;
 import static radiocare.util.InputUtil.LireString;
 
-public class AjoutPatient {
+public class AjoutPatientView {
 
         private PatientController control;
 

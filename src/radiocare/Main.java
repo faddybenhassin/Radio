@@ -2,8 +2,20 @@ package radiocare;
 
 import radiocare.controller.*;
 import radiocare.dao.*;
+import radiocare.model.Patient;
 import radiocare.service.*;
-import radiocare.view.*;
+import radiocare.view.MainView;
+import radiocare.view.CompteRenduMedical.CompteRenduMedicalView;
+import radiocare.view.EquipementImagerie.EquipementImagerieView;
+import radiocare.view.ExamenMedical.ExamenMedicalView;
+import radiocare.view.FactureMedicale.FactureMedicaleView;
+import radiocare.view.ManipulateurRadio.ManipulateurRadioView;
+import radiocare.view.MedecinRadiologue.MedecinRadiologueView;
+import radiocare.view.Paiement.PaiementView;
+import radiocare.view.Patient.AjoutPatientView;
+import radiocare.view.Patient.PatientView;
+import radiocare.view.RendezVous.RendezVousView;
+import radiocare.view.SalleRadiologie.SalleRadiologieView;
 
 public class Main {
     public static void main(String[] args) {
@@ -35,18 +47,28 @@ public class Main {
         FactureMedicaleService factureService = new FactureMedicaleService(factureDao, rdvDao, paiementDao);
         PaiementService paiementService = new PaiementService(paiementDao, factureDao);
 
-        // controllers + views
-        MainView mainView = new MainView(
-                new PatientController(patientService),
-                new MedecinRadiologueView(new MedecinRadiologueController(medecinService)),
-                new ManipulateurRadioView(new ManipulateurRadioController(manipService)),
-                new EquipementImagerieView(new EquipementImagerieController(equipementService)),
-                new SalleRadiologieView(new SalleRadiologieController(salleService)),
-                new ExamenMedicalView(new ExamenMedicalController(examenService)),
-                new RendezVousView(new RendezVousController(rdvService)),
-                new CompteRenduMedicalView(new CompteRenduMedicalController(compteRenduService)),
-                new FactureMedicaleView(new FactureMedicaleController(factureService)),
-                new PaiementView(new PaiementController(paiementService)));
-        mainView.saisirChoix();
+
+
+        // views
+        MainView mainView = new MainView();
+        //patient view
+        PatientView patientView = new PatientView();
+        AjoutPatientView ajoutPatientView = new AjoutPatientView();
+        MedecinRadiologueView medecinView = new MedecinRadiologueView();
+        // controllers
+        PatientController patientController = new PatientController(patientView,patientService,ajoutPatientView);
+        MedecinRadiologueController medecinController = new MedecinRadiologueController();
+        ManipulateurRadioController manipulateurController = new ManipulateurRadioController();
+        EquipementImagerieController equipementController = new EquipementImagerieController();
+        SalleRadiologieController salleController = new SalleRadiologieController();
+        ExamenMedicalController examenController = new ExamenMedicalController();
+        RendezVousController rendezVousController = new RendezVousController();
+        CompteRenduMedicalController compteRenduController = new CompteRenduMedicalController();
+        FactureMedicaleController factureController = new FactureMedicaleController();
+        PaiementController paiementController = new PaiementController();
+        MainController mainController = new MainController(mainView,patientController,medecinController,manipulateurController,equipementController,salleController,examenController,rendezVousController,compteRenduController,factureController,paiementController);
+
+
+        mainController.demarrer();
     }
 }
