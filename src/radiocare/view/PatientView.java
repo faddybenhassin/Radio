@@ -91,8 +91,9 @@ public class PatientView {
                     }
                     break;
                 case 6:
-                    /*What a fiche patient should show
-                    Identity: the basic patient info you already have.
+                    /*What a fiche patient should show*/
+                    controller.createFichePatient(LireString("ID de patient: "));
+                    /*Identity: the basic patient info you already have.
                     Exam history: every rendez-vous for this patient, with the date, exam type, doctor and status (planned, done, cancelled). You’d probably include the compte rendu result for completed exams (normal / anomalie / urgent).
                     Totals: how many acts were performed in total.
                     Money: what the insurance covered and what the patient owed. That comes from their FactureMedicale records.
