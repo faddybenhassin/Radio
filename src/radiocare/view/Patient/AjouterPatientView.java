@@ -1,7 +1,5 @@
 package radiocare.view.Patient;
 
-import radiocare.controller.PatientController;
-import radiocare.exception.ValidationException;
 import radiocare.model.Patient;
 
 import java.time.LocalDate;
@@ -9,11 +7,9 @@ import java.time.LocalDate;
 import static radiocare.util.InputUtil.LireDate;
 import static radiocare.util.InputUtil.LireString;
 
-public class AjoutPatientView {
+public class AjouterPatientView {
 
-        private PatientController control;
-
-        private Patient saisirPatient(){
+        public Patient lirePatient(){
             while(true){
                 String id = LireString("patient ID: ");
                 if (id.isBlank()) {
@@ -28,10 +24,10 @@ public class AjoutPatientView {
             }
             while(true){
                 String nom = LireString("patient nom: ");
-                if (p.getNom() == null || p.getNom().isBlank()) {
-                    throw new ValidationException("Nom obligatoire.");
-                    continue;
-                }
+//                if (p.getNom() == null || p.getNom().isBlank()) {
+//                    throw new ValidationException("Nom obligatoire.");
+//                    continue;
+//                }
                 break;
             }
             String prenom = LireString("patient prenom: ");
@@ -39,6 +35,7 @@ public class AjoutPatientView {
             String telephone = LireString("patient telephone: ");
             String email = LireString("Patient email: ");
             String numAssurance = LireString("Patient assurance number: ");
-            return new Patient(id, nom, prenom, date, telephone, email, numAssurance);
+//            return new Patient(id, nom, prenom, date, telephone, email, numAssurance);
+            return  new Patient();
         }
 }

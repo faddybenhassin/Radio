@@ -45,16 +45,16 @@ public class MainController {
         do {
             choix = mainView.lireChoix();
             switch (choix) {
-                case 1:  patientController.gerer(); break;
-                case 2:  medecinController.gererMedecin(); break;
-                case 3:  manipulateurController.gererManipulateur(); break;
-                case 4:  equipementController.gererEquipement(); break;
-                case 5:  salleController.gererSalle(); break;
-                case 6:  examenController.gererExamen(); break;
-                case 7:  rendezVousController.gererRendezVous(); break;
-                case 8:  compteRenduController.gererCompteRendu(); break;
-                case 9:  factureController.gererFacture(); break;
-                case 10: paiementController.gererPaiement(); break;
+                case 1:  patientController.demarrer(); break;
+//                case 2:  medecinController.demarrer(); break;
+//                case 3:  manipulateurController.demarrer(); break;
+//                case 4:  equipementController.demarrer(); break;
+//                case 5:  salleController.demarrer(); break;
+//                case 6:  examenController.demarrer(); break;
+//                case 7:  rendezVousController.demarrer(); break;
+//                case 8:  compteRenduController.demarrer(); break;
+//                case 9:  factureController.demarrer(); break;
+//                case 10: paiementController.demarrer(); break;
                 case 0:  System.out.println("a bientot"); break;
                 default: System.out.println("Choix invalide !");
             }
