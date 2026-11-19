@@ -1,5 +1,6 @@
 package radiocare.controller;
 
+import radiocare.model.FichePatient;
 import radiocare.model.Patient;
 import radiocare.service.PatientService;
 
@@ -14,9 +15,10 @@ public class PatientController {
         this.service = service;
     }
 
-    public void ajouter(Patient p)                { service.ajouter(p); }
-    public void modifier(Patient p)               { service.modifier(p); }
-    public void supprimer(String cin)             { service.supprimer(cin); }
-    public Patient trouverParCin(String cin)      { return service.trouverParCin(cin); }
-    public List<Patient> listerTous()             { return service.listerTous(); }
+    public void ajouter(Patient p)                      { service.ajouter(p); }
+    public void modifier(Patient p)                     { service.modifier(p); }
+    public void supprimer(String cin)                   { service.supprimer(cin); }
+    public Patient trouverParCin(String cin)            { return service.trouverParCin(cin); }
+    public List<Patient> listerTous()                   { return service.listerTous(); }
+    public FichePatient createFichePatient(String id)   { return service.createFiche(id);}
 }
