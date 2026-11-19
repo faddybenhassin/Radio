@@ -1,5 +1,7 @@
 package radiocare.controller;
 
+import radiocare.exception.PersistenceException;
+import radiocare.exception.ValidationException;
 import radiocare.model.FichePatient;
 import radiocare.model.Patient;
 import radiocare.service.PatientService;
@@ -33,7 +35,13 @@ public class PatientController {
         switch(choix){
             case 1:
                 Patient p = ajouterPatientView.lirePatient();
-                ajouter(p);
+                try{
+                    ajouter(p);
+                    // clean the success message
+                    view.afficherMessageSucces("Patient ajouter avec succes");
+                }catch(ValidationException | PersistenceException e){
+                    view.afficherMessageEchec(e.getMessage());
+                }
                 break;
             case 2:
                 break;
