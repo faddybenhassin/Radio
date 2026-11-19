@@ -53,18 +53,20 @@ public class Main {
 
         // controllers
         PatientController patientController = new PatientController(patientService, patientView, ajouterPatientView,modifierPatientView,supprimerPatientView,rechercherPatientView,listerPatientView);
-        MedecinRadiologueController medecinController = new MedecinRadiologueController();
-        ManipulateurRadioController manipulateurController = new ManipulateurRadioController();
-        EquipementImagerieController equipementController = new EquipementImagerieController();
-        SalleRadiologieController salleController = new SalleRadiologieController();
-        ExamenMedicalController examenController = new ExamenMedicalController();
-        RendezVousController rendezVousController = new RendezVousController();
-        CompteRenduMedicalController compteRenduController = new CompteRenduMedicalController();
-        FactureMedicaleController factureController = new FactureMedicaleController();
-        PaiementController paiementController = new PaiementController();
+        MedecinRadiologueController medecinController = new MedecinRadiologueController(medecinService);
+        ManipulateurRadioController manipController = new ManipulateurRadioController(manipService);
+        EquipementImagerieController equipementController = new EquipementImagerieController(equipementService);
+        SalleRadiologieController salleController = new SalleRadiologieController(salleService);
+        ExamenMedicalController examenController = new ExamenMedicalController(examenService);
+        RendezVousController rdvController = new RendezVousController(rdvService);
+        CompteRenduMedicalController compteRenduController = new CompteRenduMedicalController(compteRenduService);
+        FactureMedicaleController factureController = new FactureMedicaleController(factureService);
+        PaiementController paiementController = new PaiementController(paiementService);
 
         // main controller
-        MainController mainController = new MainController(mainView,patientController,medecinController,manipulateurController,equipementController,salleController,examenController,rendezVousController,compteRenduController,factureController,paiementController);
+        MainController mainController = new MainController(mainView,patientController,medecinController,
+                manipController,equipementController,salleController,examenController,rdvController,
+                compteRenduController,factureController,paiementController);
 
 
         mainController.demarrer();

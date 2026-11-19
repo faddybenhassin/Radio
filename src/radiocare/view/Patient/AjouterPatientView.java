@@ -8,7 +8,7 @@ import static radiocare.util.InputUtil.LireDate;
 import static radiocare.util.InputUtil.LireString;
 
 public class AjouterPatientView {
-
+        // needs a print to say we entered ajouter patient view
         public Patient lirePatient(){
             String id;
             String nom;
@@ -49,11 +49,6 @@ public class AjouterPatientView {
             }
             while(true){
                 date = LireDate("date de naissance(AAAA-MM-JJ): ");
-
-                if (date == null) {
-                    System.out.println("Date de naissance obligatoire.");
-                    continue;
-                }
                 LocalDate minDate = LocalDate.of(LocalDate.now().getYear() - 120, 1, 1);
                 LocalDate today = LocalDate.now();
 

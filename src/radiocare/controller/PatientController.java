@@ -32,7 +32,8 @@ public class PatientController {
         int choix = view.lireChoix();
         switch(choix){
             case 1:
-                ajouterPatientView.lirePatient();
+                Patient p = ajouterPatientView.lirePatient();
+                ajouter(p);
                 break;
             case 2:
                 break;
