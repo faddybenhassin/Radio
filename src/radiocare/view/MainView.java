@@ -1,14 +1,21 @@
 package radiocare.view;
 
-import static radiocare.util.InputUtil.*;
+import static radiocare.util.InputUtil.lireInt;
+
+import java.util.List;
 
 public class MainView {
 
+    public void afficherMenu(List<String> libelles) {
+        StringBuilder menu = new StringBuilder("===== RADIOCARE =====\n");
+        for (int i = 0; i < libelles.size(); i++) {
+            menu.append(i + 1).append(". ").append(libelles.get(i)).append('\n');
+        }
+        menu.append("0. Quitter");
+        System.out.println(menu);
+    }
 
     public int lireChoix() {
-        return lireInt("===== RADIOCARE =====\n"
-                + "1. Patients\n2. Medecins\n3. Manipulateurs\n4. Equipements\n5. Salles\n"
-                + "6. Examens\n7. Rendez-vous\n8. Comptes rendus\n9. Factures\n10. Paiements\n"
-                + "0. Quitter\n>>");
+        return lireInt(">>");
     }
 }

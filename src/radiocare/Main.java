@@ -7,6 +7,9 @@ import radiocare.view.MainView;
 import radiocare.view.MedecinRadiologue.MedecinRadiologueView;
 import radiocare.view.Patient.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -64,11 +67,13 @@ public class Main {
         PaiementController paiementController = new PaiementController(paiementService);
 
         // main controller
-        MainController mainController = new MainController(mainView,patientController,medecinController,
-                manipController,equipementController,salleController,examenController,rdvController,
-                compteRenduController,factureController,paiementController);
+        List<Controllable> modules = new ArrayList<>();
+        modules.add(patientController);
+//        modules.add(medecinController);      // once it implements Controllable
+//        modules.add(manipController);        // etc.
 
+        MainController mainController = new MainController(mainView, modules);
 
-        mainController.demarrer();
+        mainController.lancer();
     }
 }

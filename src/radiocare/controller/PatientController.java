@@ -10,7 +10,7 @@ import radiocare.view.Patient.*;
 import java.util.List;
 
 //controller's job is to be a plumber so view can build the object on its own and service will validate either way
-public class PatientController {
+public class PatientController implements Controllable {
 
     private final PatientService service;
     private final PatientView view;
@@ -30,6 +30,12 @@ public class PatientController {
         this.listerPatientView = listerPatientView;
     }
 
+    @Override
+    public String getLibelle() {
+        return "Patients";
+    }
+
+    @Override
     public void demarrer(){
         int choix = view.lireChoix();
         switch(choix){
