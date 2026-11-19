@@ -3,6 +3,7 @@ package radiocare.service;
 
 import radiocare.dao.PatientDAO;
 import radiocare.exception.ValidationException;
+import radiocare.model.FichePatient;
 import radiocare.model.Patient;
 
 import java.time.LocalDate;
@@ -112,5 +113,10 @@ public class PatientService {
     }
     public List<Patient> listerTous(){
         return dao.findAll();
+    }
+
+    public FichePatient createFiche(String cin){
+        //TODO
+        return null;
     }
 }
