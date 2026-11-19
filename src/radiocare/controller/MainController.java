@@ -1,36 +1,37 @@
 package radiocare.controller;
 
-import radiocare.view.MainView;
+import radiocare.view.MenuView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainController {
 
-    private final MainView mainView;
+    private final MenuView view;
     private final List<Controllable> modules;
 
-    public MainController(MainView mainView, List<Controllable> modules) {
-        this.mainView = mainView;
+    public MainController(MenuView view, List<Controllable> modules) {
+        this.view = view;
         this.modules = modules;
     }
 
     public void lancer() {
         int choix;
         do {
-            List<String> libelles = new ArrayList<>();
+            List<String> options = new ArrayList<>();
             for (Controllable module : modules) {
-                libelles.add(module.getLibelle());
+                options.add(module.getLibelle());
             }
-            mainView.afficherMenu(libelles);
-            choix = mainView.lireChoix();
+
+            view.afficherMenu("===== RADIOCARE =====", options, "Quitter");
+            choix = view.lireChoix();
 
             if (choix == 0) {
-                System.out.println("a bientot");
+                view.afficherMessageSucces("a bientot");
             } else if (choix >= 1 && choix <= modules.size()) {
                 modules.get(choix - 1).demarrer();
             } else {
-                System.out.println("Choix invalide !");
+                view.afficherMessageEchec("Choix invalide !");
             }
         } while (choix != 0);
     }
