@@ -1,4 +1,4 @@
-package radiocare.view;
+package radiocare.view.Patient;
 
 import radiocare.controller.PatientController;
 import java.time.LocalDate;
@@ -10,10 +10,10 @@ import static radiocare.util.InputUtil.*;
 import radiocare.exception.ValidationException;
 
 // make it into seperate (PatientAjout...) classes
-public class PatientView {
+public class tempPatientView {
 
     private final PatientController controller;
-    public PatientView(PatientController controller){
+    public tempPatientView(PatientController controller){
         this.controller = controller;
     }
     private Patient saisirPatient(String id){
@@ -31,6 +31,7 @@ public class PatientView {
             choix = lireInt("==== PATIENT ====\n1. Ajouter\n2. Modifier\n3. Supprimer\n4. Rechercher\n5. Lister\n6. Fiche patient\n0. Retour\n>>");
             switch (choix) {
                 case 1:
+                    AjoutPatient.idk
                     // we add input control to view
                     // make the whole trip back and forth from view to controller
                     String id = LireString("patient ID: ");

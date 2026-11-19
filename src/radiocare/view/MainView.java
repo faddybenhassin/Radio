@@ -1,12 +1,12 @@
 package radiocare.view;
 
-import radiocare.controller.PatientController;
+import radiocare.view.Patient.tempPatientView;
 
 import static radiocare.util.InputUtil.*;
 
 public class MainView {
 
-    private final PatientView patientView;
+    private final tempPatientView patientView;
     private final MedecinRadiologueView medecinView;
     private final ManipulateurRadioView manipulateurView;
     private final EquipementImagerieView equipementView;
@@ -17,7 +17,7 @@ public class MainView {
     private final FactureMedicaleView factureView;
     private final PaiementView paiementView;
 
-    public MainView(PatientView patientView,
+    public MainView(tempPatientView patientView,
                     MedecinRadiologueView medecinView,
                     ManipulateurRadioView manipulateurView,
                     EquipementImagerieView equipementView,

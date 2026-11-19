@@ -61,7 +61,7 @@ Root package: `radiocare`. Layers: `view → controller → service → dao → 
 - [X] `PatientDAO`
 - [X] `PatientService` (CRUD + validation: unique CIN, email format, etc.)
 - [X] `PatientController`
-- [ ] `PatientView` (add, edit, delete, search, show record)
+- [ ] `tempPatientView` (add, edit, delete, search, show record)
 - [ ] Verify `patients.json` is written and reloaded correctly
 - [ ] Review the architecture before copying the pattern
 
