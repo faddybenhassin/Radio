@@ -2,26 +2,20 @@ package radiocare.view;
 
 import radiocare.controller.PatientController;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 import radiocare.exception.PersistenceException;
 import radiocare.model.Patient;
-import java.util.InputMismatchException;
 import static radiocare.util.InputUtil.*;
 import radiocare.exception.ValidationException;
 
-
+// make it into seperate (PatientAjout...) classes
 public class PatientView {
 
     private final PatientController controller;
     public PatientView(PatientController controller){
         this.controller = controller;
     }
-    // we gotta make the view like this we take a choice then that choice triggers the controller yada yada
     private Patient saisirPatient(String id){
         String nom = LireString("patient nom: ");
         String prenom = LireString("patient prenom: ");
@@ -37,7 +31,8 @@ public class PatientView {
             choix = lireInt("==== PATIENT ====\n1. Ajouter\n2. Modifier\n3. Supprimer\n4. Rechercher\n5. Lister\n6. Fiche patient\n0. Retour\n>>");
             switch (choix) {
                 case 1:
-                    // later on ,we check the existance of the patient id
+                    // we add input control to view
+                    // make the whole trip back and forth from view to controller
                     String id = LireString("patient ID: ");
                     try {
                         controller.ajouter(saisirPatient(id));
