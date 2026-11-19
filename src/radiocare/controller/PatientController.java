@@ -3,29 +3,37 @@ package radiocare.controller;
 import radiocare.model.FichePatient;
 import radiocare.model.Patient;
 import radiocare.service.PatientService;
-import radiocare.view.Patient.AjoutPatientView;
-import radiocare.view.Patient.PatientView;
+import radiocare.view.Patient.*;
 
 import java.util.List;
 
 //controller's job is to be a plumber so view can build the object on its own and service will validate either way
 public class PatientController {
 
-    private final PatientView view;
     private final PatientService service;
-    private final AjoutPatientView ajoutPatientView;
+    private final PatientView view;
+    private final AjouterPatientView ajouterPatientView;
+    private final ModifierPatientView modifierPatientView;
+    private final SupprimerPatientView supprimerPatientView;
+    private final RechercherPatientView rechercherPatientView;
+    private final ListerPatientView listerPatientView;
 
-    public PatientController(PatientView view, PatientService service, AjoutPatientView ajoutPatientView) {
-        this.view = view;
+    public PatientController(PatientService service, PatientView view, AjouterPatientView ajouterPatientView, ModifierPatientView modifierPatientView, SupprimerPatientView supprimerPatientView, RechercherPatientView rechercherPatientView, ListerPatientView listerPatientView) {
         this.service = service;
-        this.ajoutPatientView = ajoutPatientView;
+        this.view = view;
+        this.ajouterPatientView = ajouterPatientView;
+        this.modifierPatientView = modifierPatientView;
+        this.supprimerPatientView = supprimerPatientView;
+        this.rechercherPatientView = rechercherPatientView;
+        this.listerPatientView = listerPatientView;
     }
 
-    public void gerer(){
+    public void demarrer(){
         int choix = view.lireChoix();
         switch(choix){
             case 1:
-                ajoutPatientView.lireChoix(); break;
+                ajouterPatientView.lirePatient();
+                break;
             case 2:
                 break;
         }

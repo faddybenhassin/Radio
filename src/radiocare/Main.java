@@ -2,27 +2,15 @@ package radiocare;
 
 import radiocare.controller.*;
 import radiocare.dao.*;
-import radiocare.model.Patient;
 import radiocare.service.*;
 import radiocare.view.MainView;
-import radiocare.view.CompteRenduMedical.CompteRenduMedicalView;
-import radiocare.view.EquipementImagerie.EquipementImagerieView;
-import radiocare.view.ExamenMedical.ExamenMedicalView;
-import radiocare.view.FactureMedicale.FactureMedicaleView;
-import radiocare.view.ManipulateurRadio.ManipulateurRadioView;
 import radiocare.view.MedecinRadiologue.MedecinRadiologueView;
-import radiocare.view.Paiement.PaiementView;
-import radiocare.view.Patient.AjoutPatientView;
-import radiocare.view.Patient.PatientView;
-import radiocare.view.RendezVous.RendezVousView;
-import radiocare.view.SalleRadiologie.SalleRadiologieView;
+import radiocare.view.Patient.*;
 
 public class Main {
     public static void main(String[] args) {
 
-        // we call all the parts in main and one is passed to the one under it
-        // each DAO is created ONCE and shared: JsonDAO keeps the data in memory,
-        // so two instances of the same DAO would not see each other's changes
+        // daos
         PatientDAO patientDao = new PatientDAO();
         MedecinRadiologueDAO medecinDao = new MedecinRadiologueDAO();
         ManipulateurRadioDAO manipDao = new ManipulateurRadioDAO();
@@ -49,14 +37,22 @@ public class Main {
 
 
 
-        // views
+        // main view
         MainView mainView = new MainView();
+
         //patient view
         PatientView patientView = new PatientView();
-        AjoutPatientView ajoutPatientView = new AjoutPatientView();
+        AjouterPatientView ajouterPatientView = new AjouterPatientView();
+        ModifierPatientView modifierPatientView = new ModifierPatientView();
+        SupprimerPatientView supprimerPatientView = new SupprimerPatientView();
+        RechercherPatientView rechercherPatientView = new RechercherPatientView();
+        ListerPatientView listerPatientView = new ListerPatientView();
+
+        // medcin view
         MedecinRadiologueView medecinView = new MedecinRadiologueView();
+
         // controllers
-        PatientController patientController = new PatientController(patientView,patientService,ajoutPatientView);
+        PatientController patientController = new PatientController(patientService, patientView, ajouterPatientView,modifierPatientView,supprimerPatientView,rechercherPatientView,listerPatientView);
         MedecinRadiologueController medecinController = new MedecinRadiologueController();
         ManipulateurRadioController manipulateurController = new ManipulateurRadioController();
         EquipementImagerieController equipementController = new EquipementImagerieController();
@@ -66,6 +62,8 @@ public class Main {
         CompteRenduMedicalController compteRenduController = new CompteRenduMedicalController();
         FactureMedicaleController factureController = new FactureMedicaleController();
         PaiementController paiementController = new PaiementController();
+
+        // main controller
         MainController mainController = new MainController(mainView,patientController,medecinController,manipulateurController,equipementController,salleController,examenController,rendezVousController,compteRenduController,factureController,paiementController);
 
 
