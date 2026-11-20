@@ -6,7 +6,7 @@ import radiocare.service.*;
 import radiocare.view.ConsoleMenuView;
 import radiocare.view.MenuView;
 import radiocare.view.Patient.AjouterPatientView;
-import radiocare.view.Patient.ListerPatientView;
+import radiocare.view.Patient.ListerPatientsView;
 import radiocare.view.Patient.ModifierPatientView;
 import radiocare.view.Patient.RechercherPatientView;
 import radiocare.view.Patient.SupprimerPatientView;
@@ -45,17 +45,17 @@ public class Main {
         // one view for every menu
         MenuView menuView = new ConsoleMenuView();
 
-        // specialized patient views (kept)
+        // patient views
         AjouterPatientView ajouterPatientView = new AjouterPatientView();
         ModifierPatientView modifierPatientView = new ModifierPatientView();
         SupprimerPatientView supprimerPatientView = new SupprimerPatientView();
         RechercherPatientView rechercherPatientView = new RechercherPatientView();
-        ListerPatientView listerPatientView = new ListerPatientView();
+        ListerPatientsView listerPatientsView = new ListerPatientsView();
 
         // controllers
         PatientController patientController = new PatientController(patientService, menuView,
                 ajouterPatientView, modifierPatientView, supprimerPatientView,
-                rechercherPatientView, listerPatientView);
+                rechercherPatientView, listerPatientsView);
         MedecinRadiologueController medecinController = new MedecinRadiologueController(medecinService);
         ManipulateurRadioController manipController = new ManipulateurRadioController(manipService);
         EquipementImagerieController equipementController = new EquipementImagerieController(equipementService);

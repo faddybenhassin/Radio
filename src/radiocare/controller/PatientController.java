@@ -23,18 +23,18 @@ public class PatientController implements Controllable {
     private final ModifierPatientView modifierPatientView;
     private final SupprimerPatientView supprimerPatientView;
     private final RechercherPatientView rechercherPatientView;
-    private final ListerPatientView listerPatientView;
+    private final ListerPatientsView listerPatientsView;
 
     public PatientController(PatientService service, MenuView view, AjouterPatientView ajouterPatientView,
                              ModifierPatientView modifierPatientView, SupprimerPatientView supprimerPatientView,
-                             RechercherPatientView rechercherPatientView, ListerPatientView listerPatientView) {
+                             RechercherPatientView rechercherPatientView, ListerPatientsView listerPatientsView) {
         this.service = service;
         this.view = view;
         this.ajouterPatientView = ajouterPatientView;
         this.modifierPatientView = modifierPatientView;
         this.supprimerPatientView = supprimerPatientView;
         this.rechercherPatientView = rechercherPatientView;
-        this.listerPatientView = listerPatientView;
+        this.listerPatientsView = listerPatientsView;
     }
 
     @Override
@@ -48,16 +48,32 @@ public class PatientController implements Controllable {
         int choix = view.lireChoix();
         switch (choix) {
             case 1:
-                ajouterPatientView.afficherTitre(MENU.get(0));
+                view.afficherTitre(MENU.getFirst());
                 Patient p = ajouterPatientView.lirePatient();
                 try {
                     ajouter(p);
-                    view.afficherMessageSucces("Patient ajouter avec succes");
+                    view.afficherMessageSucces("Patient ajouté avec succès : " + p);
                 } catch (ValidationException | PersistenceException e) {
                     view.afficherMessageEchec(e.getMessage());
                 }
                 break;
             case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                view.afficherTitre(MENU.get(4));
+                try {
+                    List<Patient> L = listerTous();
+                    if(L.isEmpty()){
+                        view.afficherMessageEchec("aucun patient a afficher");
+                    }
+                    listerPatientsView.afficherPatients(L);
+                } catch (ValidationException | PersistenceException e) {
+                    view.afficherMessageEchec(e.getMessage());
+                }
                 break;
         }
     }

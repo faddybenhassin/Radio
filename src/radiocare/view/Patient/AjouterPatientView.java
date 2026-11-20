@@ -7,10 +7,7 @@ import java.time.LocalDate;
 import static radiocare.util.InputUtil.LireDate;
 import static radiocare.util.InputUtil.LireString;
 
-public class AjouterPatientView {
-        public void afficherTitre(String titre){
-            System.out.println("==== "+titre.toUpperCase()+" ====");
-        }
+public class AjouterPatientView {     
         public Patient lirePatient(){
             String id;
             String nom;

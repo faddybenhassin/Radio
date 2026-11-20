@@ -20,5 +20,16 @@
     "numAssurance": "222",
     "soldeCompte": 0.0,
     "historiqueExamensIds": []
+  },
+  {
+    "cinMatricule": "12345678",
+    "nom": "dadaw",
+    "prenom": "dwadad",
+    "dateNaissance": "2006-01-01",
+    "telephone": "12345678",
+    "email": "dwaaa@dada",
+    "numAssurance": "123",
+    "soldeCompte": 0.0,
+    "historiqueExamensIds": []
   }
 ]

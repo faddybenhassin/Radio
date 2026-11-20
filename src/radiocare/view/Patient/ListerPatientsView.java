@@ -1,10 +1,9 @@
 package radiocare.view.Patient;
+import radiocare.model.Patient;
+import java.util.List;
 
-public class ListerPatientView {
-    public void afficherTitre(String titre){
-        System.out.println("==== "+titre.toUpperCase()+" ====");
-    }
-    public void idk(){
+public class ListerPatientsView {
+    public void afficherPatients(List<Patient> list){
 
     }
 }
