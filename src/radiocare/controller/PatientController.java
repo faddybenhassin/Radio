@@ -48,6 +48,7 @@ public class PatientController implements Controllable {
         int choix = view.lireChoix();
         switch (choix) {
             case 1:
+                ajouterPatientView.afficherTitre(MENU.get(0));
                 Patient p = ajouterPatientView.lirePatient();
                 try {
                     ajouter(p);

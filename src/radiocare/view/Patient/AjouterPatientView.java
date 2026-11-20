@@ -8,7 +8,9 @@ import static radiocare.util.InputUtil.LireDate;
 import static radiocare.util.InputUtil.LireString;
 
 public class AjouterPatientView {
-        // needs a print to say we entered ajouter patient view
+        public void afficherTitre(String titre){
+            System.out.println("==== "+titre.toUpperCase()+" ====");
+        }
         public Patient lirePatient(){
             String id;
             String nom;
