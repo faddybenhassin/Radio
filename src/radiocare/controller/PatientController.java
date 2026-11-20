@@ -47,6 +47,8 @@ public class PatientController implements Controllable {
         view.afficherMenu(TITRE, MENU, "Retour");
         int choix = view.lireChoix();
         switch (choix) {
+            case 0:
+                break;
             case 1:
                 view.afficherTitre(MENU.getFirst());
                 Patient p = ajouterPatientView.lirePatient();
@@ -66,14 +68,17 @@ public class PatientController implements Controllable {
             case 5:
                 view.afficherTitre(MENU.get(4));
                 try {
-                    List<Patient> L = listerTous();
-                    if(L.isEmpty()){
+                    List<Patient> patients = listerTous();
+                    if(patients.isEmpty()){
                         view.afficherMessageEchec("aucun patient a afficher");
                     }
-                    listerPatientsView.afficherPatients(L);
+                    listerPatientsView.afficherPatients(patients);
                 } catch (ValidationException | PersistenceException e) {
                     view.afficherMessageEchec(e.getMessage());
                 }
+                break;
+            default:
+                view.afficherMessageEchec("Choix invalid");
                 break;
         }
     }
