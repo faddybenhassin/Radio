@@ -22,6 +22,15 @@ public class EquipementImagerie {
         this.statut = statut;
     }
 
+    public EquipementImagerie(EquipementImagerie other) {
+        this.idEquipement = other.idEquipement;
+        this.type = other.type;
+        this.marque = other.marque;
+        this.heuresCumules = other.heuresCumules;
+        this.heuresRestantMaintenance = other.heuresRestantMaintenance;
+        this.statut = other.statut;
+    }
+
     public String getIdEquipement() {
         return idEquipement;
     }

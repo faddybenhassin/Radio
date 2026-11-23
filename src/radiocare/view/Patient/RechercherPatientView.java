@@ -2,11 +2,11 @@ package radiocare.view.Patient;
 
 import radiocare.model.Patient;
 
-import static radiocare.util.InputUtil.LireString;
+import static radiocare.util.InputUtil.lireString;
 
 public class RechercherPatientView {
     public String lireCIN() {
-        return LireString("id de patient a rechercher: ");
+        return lireString("id de patient a rechercher: ");
     }
 
     public void afficherPatient(Patient p) {

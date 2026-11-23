@@ -5,6 +5,11 @@ import radiocare.dao.*;
 import radiocare.service.*;
 import radiocare.view.ConsoleMenuView;
 import radiocare.view.MenuView;
+import radiocare.view.EquipementImagerie.AjouterEquipementImagerieView;
+import radiocare.view.EquipementImagerie.ListerEquipementsImagerieView;
+import radiocare.view.EquipementImagerie.ModifierEquipementImagerieView;
+import radiocare.view.EquipementImagerie.RechercherEquipementImagerieView;
+import radiocare.view.EquipementImagerie.SupprimerEquipementImagerieView;
 import radiocare.view.Patient.AjouterPatientView;
 import radiocare.view.Patient.ListerPatientsView;
 import radiocare.view.Patient.ModifierPatientView;
@@ -52,13 +57,22 @@ public class Main {
         RechercherPatientView rechercherPatientView = new RechercherPatientView();
         ListerPatientsView listerPatientsView = new ListerPatientsView();
 
+        // equipement imagerie views
+        AjouterEquipementImagerieView ajouterEquipementView = new AjouterEquipementImagerieView();
+        ModifierEquipementImagerieView modifierEquipementView = new ModifierEquipementImagerieView();
+        SupprimerEquipementImagerieView supprimerEquipementView = new SupprimerEquipementImagerieView();
+        RechercherEquipementImagerieView rechercherEquipementView = new RechercherEquipementImagerieView();
+        ListerEquipementsImagerieView listerEquipementsView = new ListerEquipementsImagerieView();
+
         // controllers
         PatientController patientController = new PatientController(patientService, menuView,
                 ajouterPatientView, modifierPatientView, supprimerPatientView,
                 rechercherPatientView, listerPatientsView);
         MedecinRadiologueController medecinController = new MedecinRadiologueController(medecinService);
         ManipulateurRadioController manipController = new ManipulateurRadioController(manipService);
-        EquipementImagerieController equipementController = new EquipementImagerieController(equipementService);
+        EquipementImagerieController equipementController = new EquipementImagerieController(
+                equipementService, menuView, ajouterEquipementView, modifierEquipementView,
+                supprimerEquipementView, rechercherEquipementView, listerEquipementsView);
         SalleRadiologieController salleController = new SalleRadiologieController(salleService);
         ExamenMedicalController examenController = new ExamenMedicalController(examenService);
         RendezVousController rdvController = new RendezVousController(rdvService);
@@ -69,6 +83,7 @@ public class Main {
         // main controller
         List<Controllable> modules = new ArrayList<>();
         modules.add(patientController);
+        modules.add(equipementController);
 //        modules.add(medecinController);   // once it implements Controllable
 
         MainController mainController = new MainController(menuView, modules);

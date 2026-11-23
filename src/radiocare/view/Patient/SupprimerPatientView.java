@@ -1,11 +1,11 @@
 package radiocare.view.Patient;
 
-import static radiocare.util.InputUtil.LireString;
+import static radiocare.util.InputUtil.lireString;
 import static radiocare.util.InputUtil.lireBoolean;
 
 public class SupprimerPatientView {
     public String lireCIN() {
-        return LireString("id de patient a supprimer: ");
+        return lireString("id de patient a supprimer: ");
     }
 
     public boolean confirmerSuppression(String cin) {

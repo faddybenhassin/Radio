@@ -5,7 +5,7 @@ import radiocare.model.Patient;
 import java.time.LocalDate;
 
 import static radiocare.util.InputUtil.LireDate;
-import static radiocare.util.InputUtil.LireString;
+import static radiocare.util.InputUtil.lireString;
 
 public class AjouterPatientView {
 
@@ -20,7 +20,7 @@ public class AjouterPatientView {
 
 
             while(true){
-                id = LireString("patient ID: ");
+                id = lireString("patient ID: ");
                 if (id.isBlank()) {
                     System.out.println("CIN obligatoire.");
                     continue;
@@ -32,7 +32,7 @@ public class AjouterPatientView {
                 break;
             }
             while(true){
-                nom = LireString("patient nom: ");
+                nom = lireString("patient nom: ");
                 if (nom.isBlank()) {
                     System.out.println("Nom obligatoire.");
                     continue;
@@ -40,7 +40,7 @@ public class AjouterPatientView {
                 break;
             }
             while(true){
-                prenom = LireString("patient prenom: ");
+                prenom = lireString("patient prenom: ");
                 if (prenom.isBlank()) {
                     System.out.println("Prenom obligatoire.");
                     continue;
@@ -65,7 +65,7 @@ public class AjouterPatientView {
             }
 
             while(true){
-                telephone = LireString("patient telephone: ");
+                telephone = lireString("patient telephone: ");
 
                 if (telephone.isBlank()) {
                     System.out.println("Telephone obligatoire");
@@ -78,7 +78,7 @@ public class AjouterPatientView {
                 break;
             }
             while(true){
-                email = LireString("Patient email: ");
+                email = lireString("Patient email: ");
 
                 if (!email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) {
                     System.out.println("Email invalide");
@@ -88,7 +88,7 @@ public class AjouterPatientView {
             }
 
             while(true){
-                numAssurance = LireString("Patient assurance number: ");
+                numAssurance = lireString("Patient assurance number: ");
 
                 if (numAssurance.isBlank()) {
                     System.out.println("numAssurance obligatoire");

@@ -4,25 +4,25 @@ import radiocare.model.Patient;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 
-import static radiocare.util.InputUtil.LireString;
+import static radiocare.util.InputUtil.lireString;
 
 public class ModifierPatientView {
     public String lireCIN(){
-        return LireString("id de patient a modifier: ");
+        return lireString("id de patient a modifier: ");
     }
     public Patient modifierPatient(Patient original){
         Patient p = new Patient(original);
         System.out.println("taper ENTRER pour passer");
-        String nom = LireString("Nom [" + p.getNom() + "] : ");
+        String nom = lireString("Nom [" + p.getNom() + "] : ");
         if(!nom.isBlank()){
             p.setNom(nom);
         }
-        String prenom = LireString("Prenom [" + p.getPrenom() + "] : ");
+        String prenom = lireString("Prenom [" + p.getPrenom() + "] : ");
         if(!prenom.isBlank()){
             p.setPrenom(prenom);
         }
         while(true){
-            String date = LireString("Date de naissance [" + p.getDateNaissance() + "]: ");
+            String date = lireString("Date de naissance [" + p.getDateNaissance() + "]: ");
             LocalDate theDate;
 
             if(date.isBlank()){
@@ -51,7 +51,7 @@ public class ModifierPatientView {
             break;
         }
         while(true){
-            String telephone = LireString("numero de telephone ["+p.getTelephone()+"]: ");
+            String telephone = lireString("numero de telephone ["+p.getTelephone()+"]: ");
             if(telephone.isBlank()) break;
             if(!telephone.matches("\\d{8}")){
                 System.out.println("Le numéro doit contenir exactement 8 chiffres.");
@@ -61,7 +61,7 @@ public class ModifierPatientView {
             break;
         }
         while(true){
-            String email = LireString("Patient email["+p.getEmail()+"]: ");
+            String email = lireString("Patient email["+p.getEmail()+"]: ");
             if(email.isBlank())break;
 
             if (!email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) {
@@ -71,7 +71,7 @@ public class ModifierPatientView {
             p.setEmail(email);
             break;
         }
-        String numAssurance = LireString("nombre d'assurance["+p.getNumAssurance()+"]: ");
+        String numAssurance = lireString("nombre d'assurance["+p.getNumAssurance()+"]: ");
         if(!numAssurance.isBlank()) p.setNumAssurance(numAssurance);
 
         return p;
