@@ -47,6 +47,8 @@ public class PatientController implements Controllable {
         view.afficherMenu(TITRE, MENU, "Retour");
         int choix = view.lireChoix();
         switch (choix) {
+            case 0:
+                break;
             case 1:
                 view.afficherTitre(MENU.getFirst());
                 Patient p = ajouterPatientView.lirePatient();
@@ -61,22 +63,47 @@ public class PatientController implements Controllable {
                 view.afficherTitre(MENU.get(choix-1));
                 try {
                     String cin = modifierPatientView.lireCIN();
-                    Patient pa = trouverParCin(cin);
-                    if(pa==null){
+                    Patient patient = trouverParCin(cin);
+
+                    if(patient==null){
                         view.afficherMessageEchec("patient introuvable de cin "+cin);
                         break;
                     }
-                    modifierPatientView.modifierPatient(pa);
-                    modifier(pa);
+
+                    Patient newPatient = modifierPatientView.modifierPatient(patient);
+                    modifier(newPatient);
                     view.afficherMessageSucces("Patient modifier avec succes");
                 }catch(PersistenceException | ValidationException e){
                     view.afficherMessageEchec(e.getMessage());
                 }
                 break;
             case 3:
-                view.afficherTitre(MENU.get(choix-1));
+                view.afficherTitre(MENU.get(choix - 1));
+                try {
+                    String cin = supprimerPatientView.lireCIN();
+                    if (!supprimerPatientView.confirmerSuppression(cin)) {
+                        view.afficherMessageEchec("Suppression annulee.");
+                        break;
+                    }
+                    supprimer(cin);
+                    view.afficherMessageSucces("Patient supprime avec succes : " + cin);
+                } catch (ValidationException | PersistenceException e) {
+                    view.afficherMessageEchec(e.getMessage());
+                }
                 break;
             case 4:
+                view.afficherTitre(MENU.get(choix - 1));
+                try {
+                    String cin = rechercherPatientView.lireCIN();
+                    Patient patient = trouverParCin(cin);
+                    if (patient == null) {
+                        view.afficherMessageEchec("patient introuvable de cin " + cin);
+                        break;
+                    }
+                    rechercherPatientView.afficherPatient(patient);
+                } catch (ValidationException | PersistenceException e) {
+                    view.afficherMessageEchec(e.getMessage());
+                }
                 break;
             case 5:
                 view.afficherTitre(MENU.get(choix-1));

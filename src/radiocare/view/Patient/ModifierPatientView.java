@@ -10,7 +10,8 @@ public class ModifierPatientView {
     public String lireCIN(){
         return LireString("id de patient a modifier: ");
     }
-    public void modifierPatient(Patient p){
+    public Patient modifierPatient(Patient original){
+        Patient p = new Patient(original);
         System.out.println("taper ENTRER pour passer");
         String nom = LireString("Nom [" + p.getNom() + "] : ");
         if(!nom.isBlank()){
@@ -72,5 +73,7 @@ public class ModifierPatientView {
         }
         String numAssurance = LireString("nombre d'assurance["+p.getNumAssurance()+"]: ");
         if(!numAssurance.isBlank()) p.setNumAssurance(numAssurance);
+
+        return p;
     }
 }

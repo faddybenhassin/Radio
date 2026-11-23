@@ -25,6 +25,20 @@ public class Patient {
 
     public Patient(){}
 
+    public Patient(Patient other) {
+        this.cinMatricule = other.cinMatricule;
+        this.nom = other.nom;
+        this.prenom = other.prenom;
+        this.dateNaissance = other.dateNaissance;
+        this.telephone = other.telephone;
+        this.email = other.email;
+        this.numAssurance = other.numAssurance;
+        this.soldeCompte = other.soldeCompte;
+        this.historiqueExamensIds = other.historiqueExamensIds == null
+                ? new ArrayList<>()
+                : new ArrayList<>(other.historiqueExamensIds);
+    }
+
     public Patient(String cinMatricule, String nom, String prenom, LocalDate dateNaissance,
                    String telephone, String email, String numAssurance) {
         this.cinMatricule = cinMatricule;
