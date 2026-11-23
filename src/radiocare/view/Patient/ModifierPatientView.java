@@ -6,7 +6,7 @@ import java.time.format.DateTimeParseException;
 
 import static radiocare.util.InputUtil.LireString;
 
-public class ModifierPatientView implements AffichageTitre{
+public class ModifierPatientView {
     public String lireCIN(){
         return LireString("id de patient a modifier: ");
     }

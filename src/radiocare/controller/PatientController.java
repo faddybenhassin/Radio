@@ -58,7 +58,7 @@ public class PatientController implements Controllable {
                 }
                 break;
             case 2:
-                modifierPatientView.afficherTitre(MENU.get(choix-1));
+                view.afficherTitre(MENU.get(choix-1));
                 try {
                     String cin = modifierPatientView.lireCIN();
                     Patient pa = trouverParCin(cin);
@@ -74,12 +74,12 @@ public class PatientController implements Controllable {
                 }
                 break;
             case 3:
-                supprimerPatientView.afficherTitre(MENU.get(choix-1));
+                view.afficherTitre(MENU.get(choix-1));
                 break;
             case 4:
                 break;
             case 5:
-                view.afficherTitre(MENU.get(4));
+                view.afficherTitre(MENU.get(choix-1));
                 try {
                     List<Patient> patients = listerTous();
                     if(patients.isEmpty()){
