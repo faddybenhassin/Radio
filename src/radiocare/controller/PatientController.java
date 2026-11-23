@@ -47,8 +47,6 @@ public class PatientController implements Controllable {
         view.afficherMenu(TITRE, MENU, "Retour");
         int choix = view.lireChoix();
         switch (choix) {
-            case 0:
-                break;
             case 1:
                 view.afficherTitre(MENU.getFirst());
                 Patient p = ajouterPatientView.lirePatient();
@@ -60,8 +58,23 @@ public class PatientController implements Controllable {
                 }
                 break;
             case 2:
+                modifierPatientView.afficherTitre(MENU.get(choix-1));
+                try {
+                    String cin = modifierPatientView.lireCIN();
+                    Patient pa = trouverParCin(cin);
+                    if(pa==null){
+                        view.afficherMessageEchec("patient introuvable de cin "+cin);
+                        break;
+                    }
+                    modifierPatientView.modifierPatient(pa);
+                    modifier(pa);
+                    view.afficherMessageSucces("Patient modifier avec succes");
+                }catch(PersistenceException | ValidationException e){
+                    view.afficherMessageEchec(e.getMessage());
+                }
                 break;
             case 3:
+                supprimerPatientView.afficherTitre(MENU.get(choix-1));
                 break;
             case 4:
                 break;

@@ -7,7 +7,8 @@ import java.time.LocalDate;
 import static radiocare.util.InputUtil.LireDate;
 import static radiocare.util.InputUtil.LireString;
 
-public class AjouterPatientView {     
+public class AjouterPatientView implements AffichageTitre{
+
         public Patient lirePatient(){
             String id;
             String nom;

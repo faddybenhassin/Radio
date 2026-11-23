@@ -1,4 +1,4 @@
 package radiocare.view.Patient;
 
-public class RechercherPatientView {
+public class RechercherPatientView implements AffichageTitre{
 }

@@ -1,4 +1,5 @@
 package radiocare.view.Patient;
 
-public class SupprimerPatientView {
+public class SupprimerPatientView implements AffichageTitre{
+
 }
