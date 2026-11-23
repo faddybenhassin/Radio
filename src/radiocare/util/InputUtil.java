@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
 import java.util.Scanner;
+import java.util.function.Function;
 
 public final class InputUtil {
     public InputUtil(){}
@@ -12,12 +13,45 @@ public final class InputUtil {
         System.out.print(message);
         return sc.nextLine().trim();
     }
-    public static LocalDate LireDate(String message){
+    public static LocalDate parseDate(String s){
+        try{
+            return LocalDate.parse(s);
+        }catch(DateTimeParseException e){
+            throw new IllegalArgumentException("format incorrect ! (AAAA-MM-JJ)");
+        }
+    }
+    // one input for ajouter(actuel == null so it becomes required) and modify (when u pass blank it just skips)
+    // i need to explain this one to yassin
+    public static <T> T lireValeur(String message, T actuel,
+                                   Function<String, T> parse,
+                                   Function<T, String> erreur){
+        while(true){
+            String prompt = message + (actuel == null ? "" : " [" + actuel + "]") + " : ";
+            String saisie = lireString(prompt);
+
+            if(saisie.isBlank()){
+                if(actuel != null) return actuel;   // keep old value
+                String msg = erreur.apply(null);    // actuel is null so we have to get it
+                if(msg != null) System.out.println(msg);
+                continue;
+            }
+
+            try{
+                T valeur = parse.apply(saisie);
+                String msg = erreur.apply(valeur);
+                if(msg == null) return valeur;
+                System.out.println(msg);
+            }catch(IllegalArgumentException e){
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+    public static LocalDate lireDate(String message){
         while(true){
             try{
                 return LocalDate.parse(lireString(message));
             }catch(DateTimeParseException e){
-                System.out.println("invalid date format (AAAA:MM:JJ).");
+                System.out.println("invalid date format (AAAA-MM-JJ).");
             }
         }
     }

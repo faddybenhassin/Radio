@@ -53,6 +53,72 @@ public class Patient {
         this.historiqueExamensIds = new ArrayList<>();
     }
 
+    public static String validerCin(String v) {
+        if (v == null || v.isBlank()) return "CIN obligatoire.";
+        return v.matches("\\d{8}") ? null : "CIN doit contenir exactement 8 chiffres.";
+    }
+
+    public static String validerNom(String v) {
+        return (v == null || v.isBlank()) ? "Nom obligatoire." : null;
+    }
+
+    public static String validerPrenom(String v) {
+        return (v == null || v.isBlank()) ? "Prenom obligatoire." : null;
+    }
+
+    public static String validerDate(LocalDate d) {
+        if (d == null) return "Date de naissance obligatoire.";
+        LocalDate minDate = LocalDate.of(LocalDate.now().getYear() - 120, 1, 1);
+        if (d.isBefore(minDate)) {
+            return "La date de naissance ne peut pas remonter à plus de 120 ans.";
+        }
+        if (d.isAfter(LocalDate.now())) {
+            return "La date de naissance ne peut pas être dans le futur.";
+        }
+        return null;
+    }
+
+    public static String validerTelephone(String v) {
+        if (v == null || v.isBlank()) return "Telephone obligatoire";
+        return v.matches("\\d{8}") ? null : "Le numéro de téléphone doit contenir exactement 8 chiffres.";
+    }
+
+    public static String validerEmail(String v) {
+        if (v == null || !v.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) {
+            return "Email invalide";
+        }
+        return null;
+    }
+
+    public static String validerNumAssurance(String v) {
+        return (v == null || v.isBlank()) ? "numAssurance obligatoire" : null;
+    }
+
+    public String valider() {
+        String e;
+        if ((e = validerCin(cinMatricule)) != null) return e;
+        if ((e = validerNom(nom)) != null) return e;
+        if ((e = validerPrenom(prenom)) != null) return e;
+        if ((e = validerDate(dateNaissance)) != null) return e;
+        if ((e = validerTelephone(telephone)) != null) return e;
+        if ((e = validerNumAssurance(numAssurance)) != null) return e;
+        if ((e = validerEmail(email)) != null) return e;
+        return null;
+    }
+
+    public boolean estIdentique(Patient other) {
+        return other != null
+                && Objects.equals(cinMatricule, other.cinMatricule)
+                && Objects.equals(nom, other.nom)
+                && Objects.equals(prenom, other.prenom)
+                && Objects.equals(dateNaissance, other.dateNaissance)
+                && Objects.equals(telephone, other.telephone)
+                && Objects.equals(email, other.email)
+                && Objects.equals(numAssurance, other.numAssurance)
+                && Double.compare(soldeCompte, other.soldeCompte) == 0
+                && Objects.equals(historiqueExamensIds, other.historiqueExamensIds);
+    }
+
     // getters and setters
     public String getCinMatricule() {
         return cinMatricule;

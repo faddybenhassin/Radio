@@ -71,8 +71,12 @@ public class PatientController implements Controllable {
                     }
 
                     Patient newPatient = modifierPatientView.modifierPatient(patient);
+                    if (patient.estIdentique(newPatient)) {
+                        view.afficherMessageInfo("Aucune modification effectuee.");
+                        break;
+                    }
                     modifier(newPatient);
-                    view.afficherMessageSucces("Patient modifier avec succes");
+                    view.afficherMessageSucces("Patient modifie avec succes");
                 }catch(PersistenceException | ValidationException e){
                     view.afficherMessageEchec(e.getMessage());
                 }

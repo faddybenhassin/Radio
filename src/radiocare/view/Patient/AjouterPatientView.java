@@ -1,102 +1,24 @@
 package radiocare.view.Patient;
 
 import radiocare.model.Patient;
+import radiocare.util.InputUtil;
 
 import java.time.LocalDate;
+import java.util.function.Function;
 
-import static radiocare.util.InputUtil.LireDate;
-import static radiocare.util.InputUtil.lireString;
+import static radiocare.util.InputUtil.lireValeur;
 
 public class AjouterPatientView {
 
-        public Patient lirePatient(){
-            String id;
-            String nom;
-            String prenom;
-            LocalDate date;
-            String telephone;
-            String email;
-            String numAssurance;
+    public Patient lirePatient(){
+        String cin = lireValeur("patient ID", null, Function.identity(), Patient::validerCin);
+        String nom = lireValeur("patient nom", null, Function.identity(), Patient::validerNom);
+        String prenom = lireValeur("patient prenom", null, Function.identity(), Patient::validerPrenom);
+        LocalDate date = lireValeur("date de naissance (AAAA-MM-JJ)", null, InputUtil::parseDate, Patient::validerDate);
+        String telephone = lireValeur("patient telephone", null, Function.identity(), Patient::validerTelephone);
+        String email = lireValeur("Patient email", null, Function.identity(), Patient::validerEmail);
+        String numAssurance = lireValeur("Patient assurance number", null, Function.identity(), Patient::validerNumAssurance);
 
-
-            while(true){
-                id = lireString("patient ID: ");
-                if (id.isBlank()) {
-                    System.out.println("CIN obligatoire.");
-                    continue;
-                }
-                if(!id.matches("\\d{8}")){
-                    System.out.println("CIN doit contenir exactement 8 chiffres.");
-                    continue;
-                }
-                break;
-            }
-            while(true){
-                nom = lireString("patient nom: ");
-                if (nom.isBlank()) {
-                    System.out.println("Nom obligatoire.");
-                    continue;
-                }
-                break;
-            }
-            while(true){
-                prenom = lireString("patient prenom: ");
-                if (prenom.isBlank()) {
-                    System.out.println("Prenom obligatoire.");
-                    continue;
-                }
-                break;
-            }
-            while(true){
-                date = LireDate("date de naissance(AAAA-MM-JJ): ");
-                LocalDate minDate = LocalDate.of(LocalDate.now().getYear() - 120, 1, 1);
-                LocalDate today = LocalDate.now();
-
-                if (date.isBefore(minDate)) {
-                    System.out.println("La date de naissance ne peut pas remonter à plus de 120 ans.");
-                    continue;
-                }
-
-                if (date.isAfter(today)) {
-                    System.out.println("La date de naissance ne peut pas être dans le futur.");
-                    continue;
-                }
-                break;
-            }
-
-            while(true){
-                telephone = lireString("patient telephone: ");
-
-                if (telephone.isBlank()) {
-                    System.out.println("Telephone obligatoire");
-                    continue;
-                }
-                if(!telephone.matches("\\d{8}")){
-                    System.out.println("Le numéro de téléphone doit contenir exactement 8 chiffres.");
-                    continue;
-                }
-                break;
-            }
-            while(true){
-                email = lireString("Patient email: ");
-
-                if (!email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) {
-                    System.out.println("Email invalide");
-                    continue;
-                }
-                break;
-            }
-
-            while(true){
-                numAssurance = lireString("Patient assurance number: ");
-
-                if (numAssurance.isBlank()) {
-                    System.out.println("numAssurance obligatoire");
-                    continue;
-                }
-                break;
-            }
-
-            return new Patient(id, nom, prenom, date, telephone, email, numAssurance);
-        }
+        return new Patient(cin, nom, prenom, date, telephone, email, numAssurance);
+    }
 }

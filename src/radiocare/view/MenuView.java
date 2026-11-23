@@ -11,4 +11,5 @@ public interface MenuView {
     }
     default void afficherMessageSucces(String message) { System.out.println(message); }
     default void afficherMessageEchec(String message)  { System.out.println(message); }
+    default void afficherMessageInfo(String message)   { System.out.println(message); }
 }
